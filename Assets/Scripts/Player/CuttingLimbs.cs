@@ -4,6 +4,7 @@ using UnityEngine;
 public class CuttingLimbs : MonoBehaviour
 {
     [SerializeField] private List<GameObject> limbs;
+    [SerializeField] private LimbLauncher limbLauncher;
 
     public void CutRightHand()
     {
@@ -41,5 +42,6 @@ public class CuttingLimbs : MonoBehaviour
         _child.transform.SetParent(null, true);
         Rigidbody childRB = _child.AddComponent<Rigidbody>();
         BoxCollider boxCollider = _child.AddComponent<BoxCollider>();
+        limbLauncher.SetSelectedLimb(_child);
     }
 }
