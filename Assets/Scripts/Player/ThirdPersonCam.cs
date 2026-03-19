@@ -12,8 +12,8 @@ public class ThirdPersonCam : MonoBehaviour
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        /*Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;*/
     }
 
     private void Update()
@@ -35,7 +35,7 @@ public class ThirdPersonCam : MonoBehaviour
     {
         Vector2 input = InputManager.Instance.MoveInput;
         float horizontalInput = input.y; //Left-Right
-        float verticalInput = input.x; //Forward-Back
+        float verticalInput = -input.x; //Forward-Back
 
         Vector3 inputDir = (orientation.forward * verticalInput) + (orientation.right * horizontalInput);
 
