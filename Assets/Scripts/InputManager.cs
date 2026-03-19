@@ -10,6 +10,12 @@ public class InputManager : MonoBehaviour
     //MOVEMENT
     private InputAction movement;
     private Vector2 moveInput;
+
+    // LAUNCH
+    private InputAction launch;
+    public bool LaunchPressed => launch.IsPressed();
+    public bool LaunchReleased => launch.WasReleasedThisFrame();
+
     public Vector2 MoveInput => moveInput; //Public Getter
 
     private void Awake()
@@ -22,6 +28,7 @@ public class InputManager : MonoBehaviour
 
         //MOVEMENT
         movement = gameplayActionMap.Move;
+        launch = gameplayActionMap.Launch;
     }
 
     private void OnEnable()
@@ -30,10 +37,12 @@ public class InputManager : MonoBehaviour
         movement.Enable();
         movement.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         movement.canceled += ctx => moveInput = Vector2.zero;
+        launch.Enable();
     }
 
     private void OnDisable()
     {
         movement.Disable();
+        launch.Disable();
     }
 }

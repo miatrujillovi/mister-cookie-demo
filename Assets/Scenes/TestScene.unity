@@ -418,8 +418,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
   Priority:
-    Enabled: 0
-    m_Value: 0
+    Enabled: 1
+    m_Value: 10
   OutputChannel: 1
   StandbyUpdate: 2
   m_StreamingVersion: 20241001
@@ -456,13 +456,44 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 126195372}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.09210202, y: 0.00643547, z: -0.00059526245, w: 0.9957286}
+  m_LocalRotation: {x: 0.09210199, y: 0.0064352937, z: -0.0005952459, w: 0.9957286}
   m_LocalPosition: {x: 0, y: 3.01, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 10.569, y: 0, z: 0}
+--- !u!1 &172813234
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 172813235}
+  m_Layer: 0
+  m_Name: SoulderPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &172813235
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172813234}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0.447}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2869120736395688002}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &175749403
 GameObject:
   m_ObjectHideFlags: 0
@@ -1077,7 +1108,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1048756183676823253, guid: 98ad67e4ae4dbb54eb05b761fb2a2c02, type: 3}
+  - {fileID: 6138011156554045791, guid: 00cafe0a18485bf4986d87092f3b2c63, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1148,7 +1179,7 @@ LineRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_ColorSpace: -1
+      m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
@@ -1756,7 +1787,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1196043744}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.09210202, y: 0.00643547, z: -0.00059526245, w: 0.9957286}
+  m_LocalRotation: {x: 0.09210199, y: 0.006435294, z: -0.0005952459, w: 0.9957286}
   m_LocalPosition: {x: 0, y: 3.01, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2827,7 +2858,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0068969727, y: 0}
+  m_AnchoredPosition: {x: 0.0068359375, y: 0}
   m_SizeDelta: {x: 0.013672, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1961211692
@@ -3032,6 +3063,7 @@ GameObject:
   - component: {fileID: 2869120736395688005}
   - component: {fileID: 2869120736395688006}
   - component: {fileID: 2869120736395688007}
+  - component: {fileID: 2869120736395688008}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3141,6 +3173,7 @@ Transform:
   - {fileID: 767516580}
   - {fileID: 175749404}
   - {fileID: 190993383}
+  - {fileID: 172813235}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2869120736395688003
@@ -3248,9 +3281,23 @@ MonoBehaviour:
   trajectoryLine: {fileID: 692203633}
   trajectoryPoints: 30
   timeBetweenPoints: 0.1
-  limbLauncher: {fileID: 2869120736395688007}
   forceCanvas: {fileID: 38938393}
   forceUI: {fileID: 190363225}
+  shoulderCamController: {fileID: 2869120736395688008}
+--- !u!114 &2869120736395688008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54573222846367038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e5e5ac0a5bb2aa4c9d1b4879212a590, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShoulderCamController
+  freeLookCam: {fileID: 126195377}
+  shoulderTarget: {fileID: 172813235}
 --- !u!23 &2912144796389940209
 MeshRenderer:
   m_ObjectHideFlags: 0

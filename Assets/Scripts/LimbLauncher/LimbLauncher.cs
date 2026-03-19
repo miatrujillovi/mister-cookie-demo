@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class LimbLauncher : MonoBehaviour
 {
@@ -13,11 +14,13 @@ public class LimbLauncher : MonoBehaviour
     [SerializeField] private float timeBetweenPoints = 0.1f;
 
     [Header("References")]
-    [SerializeField] private LimbLauncher limbLauncher;
     [SerializeField] private GameObject forceCanvas;
 
     [Header("UI")]
-    [SerializeField] private ForceUI forceUI; // script del slider/barra
+    [SerializeField] private ForceUI forceUI;
+
+    [Header("Camera")]
+    [SerializeField] private ShoulderCamController shoulderCamController;
 
     private GameObject selectedLimb;
     private Rigidbody limbRb;
@@ -35,7 +38,7 @@ public class LimbLauncher : MonoBehaviour
     {
         if (!limbSelected) return;
 
-        if (Input.GetMouseButton(0)) // mantener click para cargar
+        if (InputManager.Instance.LaunchPressed)
         {
             isCharging = true;
             currentForce = Mathf.Clamp(currentForce + chargeSpeed * Time.deltaTime, minForce, maxForce);
@@ -43,7 +46,7 @@ public class LimbLauncher : MonoBehaviour
             DrawTrajectory();
         }
 
-        if (Input.GetMouseButtonUp(0) && isCharging)
+        if (InputManager.Instance.LaunchReleased && isCharging)
         {
             LaunchLimb();
             isCharging = false;
@@ -60,17 +63,15 @@ public class LimbLauncher : MonoBehaviour
         limbRb = limb.GetComponent<Rigidbody>();
         limbSelected = true;
         currentForce = minForce;
-
         trajectoryLine.enabled = true;
         forceCanvas.SetActive(true);
-
+        shoulderCamController.SetShoulderCam(true);
     }
 
     private void DrawTrajectory()
     {
         Vector3 launchDir = GetLaunchDirection();
-        Vector3 startPos = selectedLimb.transform.position;
-
+        Vector3 startPos = Camera.main.transform.position;
         trajectoryLine.positionCount = trajectoryPoints;
 
         for (int i = 0; i < trajectoryPoints; i++)
@@ -86,18 +87,30 @@ public class LimbLauncher : MonoBehaviour
     private void LaunchLimb()
     {
         if (selectedLimb == null || limbRb == null) return;
+        selectedLimb.transform.position = Camera.main.transform.position + Camera.main.transform.forward * 0.5f;
         Vector3 launchDir = GetLaunchDirection();
         limbRb.AddForce(launchDir * currentForce, ForceMode.Impulse);
-
         trajectoryLine.enabled = false;
         forceCanvas.SetActive(false);
+        shoulderCamController.SetShoulderCam(false);
     }
 
     private Vector3 GetLaunchDirection()
     {
-        // Lanza hacia donde apunta la camara
+        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+        Vector3 targetPoint;
+
+        if (Physics.Raycast(ray, out RaycastHit hit, 100f))
+        {
+            targetPoint = hit.point; // apunta a un objeto en escena
+        }
+        else
+        {
+            targetPoint = ray.origin + ray.direction * 50f; // apunta al aire
+        }
+
         Vector3 dir = Camera.main.transform.forward;
-        dir.y += 0.3f; // ligero arco hacia arriba
+        dir.y += 0.3f;
         return dir.normalized;
     }
 }
