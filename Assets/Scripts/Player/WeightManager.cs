@@ -7,10 +7,12 @@ public class WeightManager : MonoBehaviour
     [SerializeField] private int legWeight = 3;
 
     private int totalPlayerWeight;
+    private int currentWeight;
 
     private void Start()
     {
         totalPlayerWeight = torsoHeadWeight + (handWeight * 2) + (legWeight * 2);
+        currentWeight = totalPlayerWeight;
     }
 
     private void OnEnable()
@@ -25,18 +27,29 @@ public class WeightManager : MonoBehaviour
 
     private void WeightLost(CuttingLimbs.LimbType _type)
     {
-        if (totalPlayerWeight == 0)
+        if (currentWeight == 0)
             return;
 
         if (_type.ToString() == "Hand")
         {
-            totalPlayerWeight -= handWeight;
+            currentWeight -= handWeight;
         } 
         else if (_type.ToString() == "Leg")
         {
-            totalPlayerWeight -= legWeight;
+            currentWeight -= legWeight;
         }
 
-        Debug.Log("Current Player Weight: " + totalPlayerWeight);
+        Debug.Log("Current Player Weight: " + currentWeight);
+    }
+
+    private void GainWeight()
+    {
+        currentWeight = totalPlayerWeight;
+    }
+
+    //GETTER
+    public int GetWeight()
+    {
+        return currentWeight;
     }
 }
