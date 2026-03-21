@@ -743,6 +743,7 @@ GameObject:
   - component: {fileID: 2682336896041737395}
   - component: {fileID: 2626173141803834770}
   - component: {fileID: 1921384337284857725}
+  - component: {fileID: 3574950281822473382}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -854,3 +855,18 @@ MonoBehaviour:
   - {fileID: 1704084360054620561}
   - {fileID: 3239863874943447427}
   - {fileID: 3018778297114552270}
+--- !u!114 &3574950281822473382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5762788158510102768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd554e9da3e15004787f9b7630bfb739, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeightManager
+  torsoHeadWeight: 5
+  handWeight: 2
+  legWeight: 3
