@@ -1,5 +1,5 @@
+using Unity.Cinemachine;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class LimbLauncher : MonoBehaviour
 {
@@ -21,6 +21,11 @@ public class LimbLauncher : MonoBehaviour
 
     [Header("Camera")]
     [SerializeField] private ShoulderCamController shoulderCamController;
+    [SerializeField] private CinemachineCamera shoulderCam;
+
+    [Header("Hold Settings")]
+    [SerializeField] private Transform holdPoint;
+    private bool isHolding = false;
 
     private GameObject selectedLimb;
     private Rigidbody limbRb;
@@ -30,6 +35,7 @@ public class LimbLauncher : MonoBehaviour
 
     private void Start()
     {
+        trajectoryLine.useWorldSpace = true;
         trajectoryLine.enabled = false;
         forceCanvas.SetActive(false);
     }
@@ -37,6 +43,12 @@ public class LimbLauncher : MonoBehaviour
     private void Update()
     {
         if (!limbSelected) return;
+
+        if (isHolding && selectedLimb != null)
+        {
+            selectedLimb.transform.position = holdPoint.position;
+            selectedLimb.transform.rotation = holdPoint.rotation;
+        }
 
         if (InputManager.Instance.LaunchPressed)
         {
@@ -61,7 +73,9 @@ public class LimbLauncher : MonoBehaviour
     {
         selectedLimb = limb;
         limbRb = limb.GetComponent<Rigidbody>();
+        limbRb.isKinematic = true;
         limbSelected = true;
+        isHolding = true;
         currentForce = minForce;
         trajectoryLine.enabled = true;
         forceCanvas.SetActive(true);
@@ -71,7 +85,7 @@ public class LimbLauncher : MonoBehaviour
     private void DrawTrajectory()
     {
         Vector3 launchDir = GetLaunchDirection();
-        Vector3 startPos = Camera.main.transform.position;
+        Vector3 startPos = selectedLimb.transform.position;
         trajectoryLine.positionCount = trajectoryPoints;
 
         for (int i = 0; i < trajectoryPoints; i++)
@@ -87,7 +101,8 @@ public class LimbLauncher : MonoBehaviour
     private void LaunchLimb()
     {
         if (selectedLimb == null || limbRb == null) return;
-        selectedLimb.transform.position = Camera.main.transform.position + Camera.main.transform.forward * 0.5f;
+        limbRb.isKinematic = false;
+        limbRb.linearVelocity = Vector3.zero;
         Vector3 launchDir = GetLaunchDirection();
         limbRb.AddForce(launchDir * currentForce, ForceMode.Impulse);
         trajectoryLine.enabled = false;
@@ -97,7 +112,8 @@ public class LimbLauncher : MonoBehaviour
 
     private Vector3 GetLaunchDirection()
     {
-        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+        Transform camTransform = shoulderCam.transform;
+        Ray ray = new Ray(camTransform.position, camTransform.forward);
         Vector3 targetPoint;
 
         if (Physics.Raycast(ray, out RaycastHit hit, 100f))
@@ -109,8 +125,7 @@ public class LimbLauncher : MonoBehaviour
             targetPoint = ray.origin + ray.direction * 50f; // apunta al aire
         }
 
-        Vector3 dir = Camera.main.transform.forward;
-        dir.y += 0.3f;
-        return dir.normalized;
+        Vector3 dir = (targetPoint - selectedLimb.transform.position).normalized;
+        return dir;
     }
 }
