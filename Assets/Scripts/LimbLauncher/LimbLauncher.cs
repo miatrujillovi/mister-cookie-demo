@@ -15,6 +15,7 @@ public class LimbLauncher : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private GameObject forceCanvas;
+    [SerializeField] private PlayerMovement playerMovement;
 
     [Header("UI")]
     [SerializeField] private ForceUI forceUI;
@@ -79,6 +80,7 @@ public class LimbLauncher : MonoBehaviour
         currentForce = minForce;
         trajectoryLine.enabled = true;
         forceCanvas.SetActive(true);
+        playerMovement.enabled = false;
         shoulderCamController.SetShoulderCam(true);
     }
 
