@@ -18,6 +18,12 @@ public class InputManager : MonoBehaviour
 
     public Vector2 MoveInput => moveInput; //Public Getter
 
+    //SELECTION MENU - HOLD
+    private InputAction selectionMenu;
+    private bool selection;
+    public bool Selection => selection; //Public Getter
+
+
     private void Awake()
     {
         Instance = this;
@@ -28,6 +34,10 @@ public class InputManager : MonoBehaviour
 
         //MOVEMENT
         movement = gameplayActionMap.Move;
+
+        //SELECTION MENU - HOLD
+        selectionMenu = gameplayActionMap.Selection;
+
         launch = gameplayActionMap.Launch;
     }
 
@@ -37,12 +47,36 @@ public class InputManager : MonoBehaviour
         movement.Enable();
         movement.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         movement.canceled += ctx => moveInput = Vector2.zero;
+
+        //SELECTION MENU - HOLD
+        selectionMenu.Enable();
+        selectionMenu.started += ctx => StartSelection();
+        selectionMenu.canceled += ctx => StopSelection();
+
         launch.Enable();
     }
 
     private void OnDisable()
     {
+        //MOVEMENT
         movement.Disable();
+
+        //SELECTION MENU - HOLD
+        selectionMenu.started -= ctx => StartSelection();
+        selectionMenu.canceled -= ctx => StopSelection();
+        selectionMenu.Disable();
+
         launch.Disable();
+    }
+
+        //SELECTION MENU - HOLD
+    private void StartSelection()
+    {
+        selection = true;
+    }
+
+    private void StopSelection()
+    {
+        selection = false;
     }
 }
