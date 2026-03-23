@@ -939,8 +939,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b061b982b12cf49baf0d7440cf959d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  moveSpeed: 3
-  groundDrag: 6
+  moveSpeed: 1.7
+  groundDrag: 10
   playerHeight: 0.5
   Ground:
     serializedVersion: 2
