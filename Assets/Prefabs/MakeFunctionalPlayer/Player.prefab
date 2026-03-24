@@ -121,6 +121,37 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1389815605303961673
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2466135383196027024}
+  m_Layer: 0
+  m_Name: ShoulderPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2466135383196027024
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389815605303961673}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.299, y: 2.572, z: 0.36}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4422825829641308684}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1704084360054620561
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,6 +893,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.00000047683716, z: 0}
+--- !u!1 &4941162259552476574
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2533587263875673996}
+  m_Layer: 0
+  m_Name: HoldPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2533587263875673996
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4941162259552476574}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.79, y: 1.6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4422825829641308684}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5762788158510102768
 GameObject:
   m_ObjectHideFlags: 0
@@ -875,6 +937,8 @@ GameObject:
   - component: {fileID: 2626173141803834770}
   - component: {fileID: 1921384337284857725}
   - component: {fileID: 3574950281822473382}
+  - component: {fileID: 3701012884619215742}
+  - component: {fileID: 7230241672026625689}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -898,6 +962,8 @@ Transform:
   - {fileID: 7262571678419249797}
   - {fileID: 3166555069400923077}
   - {fileID: 4542899957142884294}
+  - {fileID: 2466135383196027024}
+  - {fileID: 2533587263875673996}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &2682336896041737395
@@ -965,6 +1031,7 @@ MonoBehaviour:
   - {fileID: 1704084360054620561}
   - {fileID: 3239863874943447427}
   - {fileID: 3018778297114552270}
+  limbLauncher: {fileID: 0}
 --- !u!114 &3574950281822473382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -980,3 +1047,42 @@ MonoBehaviour:
   torsoHeadWeight: 5
   handWeight: 2
   legWeight: 3
+--- !u!114 &3701012884619215742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5762788158510102768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c0f526c61af8446a295b2186368b2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LimbLauncher
+  minForce: 5
+  maxForce: 30
+  chargeSpeed: 10
+  trajectoryLine: {fileID: 0}
+  trajectoryPoints: 30
+  timeBetweenPoints: 0.1
+  forceCanvas: {fileID: 0}
+  forceUI: {fileID: 0}
+  shoulderCamController: {fileID: 7230241672026625689}
+  shoulderCam: {fileID: 0}
+  holdPoint: {fileID: 2533587263875673996}
+--- !u!114 &7230241672026625689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5762788158510102768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e5e5ac0a5bb2aa4c9d1b4879212a590, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShoulderCamController
+  freeLookCam: {fileID: 0}
+  shoulderCam: {fileID: 0}
+  shoulderTarget: {fileID: 2466135383196027024}
+  orientation: {fileID: 3166555069400923077}

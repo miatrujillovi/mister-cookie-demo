@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using System;
 public class InputManager : MonoBehaviour
 {
     public static InputManager Instance;
@@ -10,6 +10,18 @@ public class InputManager : MonoBehaviour
     //MOVEMENT
     private InputAction movement;
     private Vector2 moveInput;
+
+    // LAUNCH
+    private InputAction launch;
+    public bool LaunchPressed => launch.IsPressed();
+    public bool LaunchReleased => launch.WasReleasedThisFrame();
+
+    //JUMP / DASH
+    private InputAction jump;
+    public event Action OnJump;
+    private InputAction dash;
+    public bool DashPressed => dash.WasPressedThisFrame();
+
     public Vector2 MoveInput => moveInput; //Public Getter
 
     //SELECTION MENU - HOLD
@@ -31,6 +43,11 @@ public class InputManager : MonoBehaviour
 
         //SELECTION MENU - HOLD
         selectionMenu = gameplayActionMap.Selection;
+
+        launch = gameplayActionMap.Launch;
+
+        jump = gameplayActionMap.Jump;
+        dash = gameplayActionMap.Dash;
     }
 
     private void OnEnable()
@@ -44,6 +61,12 @@ public class InputManager : MonoBehaviour
         selectionMenu.Enable();
         selectionMenu.started += ctx => StartSelection();
         selectionMenu.canceled += ctx => StopSelection();
+
+        launch.Enable();
+
+        jump.Enable();
+        jump.performed += HandleJump;
+        dash.Enable();
     }
 
     private void OnDisable()
@@ -55,9 +78,15 @@ public class InputManager : MonoBehaviour
         selectionMenu.started -= ctx => StartSelection();
         selectionMenu.canceled -= ctx => StopSelection();
         selectionMenu.Disable();
+
+        launch.Disable();
+
+        jump.Disable();
+        jump.performed -= HandleJump;
+        dash.Disable();
     }
 
-    //SELECTION MENU - HOLD
+        //SELECTION MENU - HOLD
     private void StartSelection()
     {
         selection = true;
@@ -66,5 +95,10 @@ public class InputManager : MonoBehaviour
     private void StopSelection()
     {
         selection = false;
+    }
+    private void HandleJump(InputAction.CallbackContext ctx)
+    {
+        Debug.Log("HandleJump disparado");
+        OnJump?.Invoke();
     }
 }
