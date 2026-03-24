@@ -110,6 +110,7 @@ public class LimbLauncher : MonoBehaviour
         trajectoryLine.enabled = false;
         forceCanvas.SetActive(false);
         shoulderCamController.SetShoulderCam(false);
+        playerMovement.enabled = true;
     }
 
     private Vector3 GetLaunchDirection()
