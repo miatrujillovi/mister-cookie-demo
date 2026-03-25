@@ -48,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
         Debug.DrawRay(rayOrigin, Vector3.down * 0.3f, grounded ? Color.green : Color.red);
         MyInput();
         HandleDrag();
+        Debug.Log("Current ground drag: " + rb.linearDamping);
     }
 
     private void FixedUpdate()
@@ -74,6 +75,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleDrag()
     {
+        if (isDashing)
+            return;
+
         if (grounded)
         {
             rb.linearDamping = groundDrag;
@@ -112,6 +116,10 @@ public class PlayerMovement : MonoBehaviour
     {
         isDashing = true;
 
+        //Deactivates groundDrag
+        float originalDrag = rb.linearDamping;
+        rb.linearDamping = 0f;
+
         // Direccion del dash — si no hay input dashea hacia el frente
         Vector3 dashDir = moveDirection.normalized;
         if (dashDir == Vector3.zero)
@@ -121,6 +129,9 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(dashDir * dashForce, ForceMode.Impulse);
 
         yield return new WaitForSeconds(dashDuration);
+
+        //Activates groundDrag
+        rb.linearDamping = originalDrag;
         isDashing = false;
     }
 
@@ -144,7 +155,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void TryJump()
     {
-        Debug.Log("TryJump llamado | grounded: " + grounded + " | canJump: " + canJump);
+        //Debug.Log("TryJump llamado | grounded: " + grounded + " | canJump: " + canJump);
         if (canJump && grounded)
         {
             canJump = false;
