@@ -34,6 +34,8 @@ public class PlayerMovement : MonoBehaviour
 
     private bool grounded;
 
+    public float RayMedition;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -41,8 +43,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f - 0.2f, Ground);
-        Debug.DrawRay(transform.position, Vector3.down * (playerHeight * 0.5f + 0.2f), grounded ? Color.green : Color.red);
+        Vector3 rayOrigin = transform.position + Vector3.down * RayMedition;
+        grounded = Physics.Raycast(rayOrigin, Vector3.down, 0.3f, Ground);
+        Debug.DrawRay(rayOrigin, Vector3.down * 0.3f, grounded ? Color.green : Color.red);
         MyInput();
         HandleDrag();
     }
