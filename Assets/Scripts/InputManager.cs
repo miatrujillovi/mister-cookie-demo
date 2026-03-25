@@ -22,6 +22,11 @@ public class InputManager : MonoBehaviour
     private InputAction dash;
     public bool DashPressed => dash.WasPressedThisFrame();
 
+    // Agrega la variable
+    private InputAction scroll;
+    private float scrollInput;
+    public float ScrollInput => scrollInput;
+
     public Vector2 MoveInput => moveInput; //Public Getter
 
     //SELECTION MENU - HOLD
@@ -54,6 +59,8 @@ public class InputManager : MonoBehaviour
 
         jump = gameplayActionMap.Jump;
         dash = gameplayActionMap.Dash;
+
+        scroll = gameplayActionMap.Scroll;
     }
 
     private void OnEnable()
@@ -73,6 +80,10 @@ public class InputManager : MonoBehaviour
         jump.Enable();
         jump.performed += HandleJump;
         dash.Enable();
+
+        scroll.Enable();
+        scroll.performed += ctx => scrollInput = ctx.ReadValue<Vector2>().y;
+        scroll.canceled += ctx => scrollInput = 0f;
     }
 
     private void OnDisable()
@@ -90,6 +101,7 @@ public class InputManager : MonoBehaviour
         jump.Disable();
         jump.performed -= HandleJump;
         dash.Disable();
+        scroll.Disable();
     }
 
         //SELECTION MENU - HOLD

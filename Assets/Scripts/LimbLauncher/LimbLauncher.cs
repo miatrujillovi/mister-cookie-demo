@@ -6,7 +6,6 @@ public class LimbLauncher : MonoBehaviour
     [Header("Launch Settings")]
     [SerializeField] private float minForce = 5f;
     [SerializeField] private float maxForce = 30f;
-    [SerializeField] private float chargeSpeed = 10f;
 
     [Header("Trajectory")]
     [SerializeField] private LineRenderer trajectoryLine;
@@ -51,11 +50,18 @@ public class LimbLauncher : MonoBehaviour
             selectedLimb.transform.rotation = holdPoint.rotation;
         }
 
+        // Ajusta la fuerza con el scroll
+        float scroll = InputManager.Instance.ScrollInput;
+        if (scroll != 0f)
+        {
+            currentForce = Mathf.Clamp(currentForce + scroll * 1.2f, minForce, maxForce);
+            forceUI.UpdateForce(currentForce, minForce, maxForce);
+            DrawTrajectory();
+        }
+
         if (InputManager.Instance.LaunchPressed)
         {
             isCharging = true;
-            currentForce = Mathf.Clamp(currentForce + chargeSpeed * Time.deltaTime, minForce, maxForce);
-            forceUI.UpdateForce(currentForce, minForce, maxForce);
             DrawTrajectory();
         }
 
@@ -63,7 +69,7 @@ public class LimbLauncher : MonoBehaviour
         {
             LaunchLimb();
             isCharging = false;
-            currentForce = 0f;
+            currentForce = minForce; // resetea a fuerza minima
             trajectoryLine.positionCount = 0;
             forceUI.UpdateForce(0, minForce, maxForce);
             limbSelected = false;
