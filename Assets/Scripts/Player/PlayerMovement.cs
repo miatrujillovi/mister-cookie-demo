@@ -125,7 +125,8 @@ public class PlayerMovement : MonoBehaviour
     private void OnEnable()
     {
         // Espera a que InputManager exista
-        InputManager.Instance.OnJump += TryJump;
+        if (InputManager.Instance != null)
+            InputManager.Instance.OnJump += TryJump;
     }
 
     private void OnDisable()
