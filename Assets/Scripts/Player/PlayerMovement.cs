@@ -86,10 +86,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
+        if (!grounded)
+            return;
+
         //Calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
         rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+
     }
 
     private void Jump()
