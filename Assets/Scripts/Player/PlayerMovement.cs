@@ -10,14 +10,17 @@ public class PlayerMovement : MonoBehaviour
     [Header("Jump")]
     [SerializeField] private float jumpForce = 8f;
     [SerializeField] private float jumpCooldown = 0.25f;
+    [SerializeField] private float airControl = 0.5f;
     private bool canJump = true;
     [Space]
     [Header("Dash")]
     [SerializeField] private float dashForce = 20f;
     [SerializeField] private float dashDuration = 0.2f;
     [SerializeField] private float dashCooldown = 1f;
+    [SerializeField] private DashUI dashUI;
     private bool canDash = true;
     private bool isDashing = false;
+    private float dashCooldownTimer = 0f;
     [Space]
     [Header("Ground Check")]
     [SerializeField] private float playerHeight;
@@ -48,7 +51,24 @@ public class PlayerMovement : MonoBehaviour
         Debug.DrawRay(rayOrigin, Vector3.down * 0.3f, grounded ? Color.green : Color.red);
         MyInput();
         HandleDrag();
-        Debug.Log("Current ground drag: " + rb.linearDamping);
+
+
+        if (!canDash)
+        {
+            dashCooldownTimer += Time.deltaTime;
+
+            float progress = Mathf.Clamp01(dashCooldownTimer / dashCooldown);
+            progress = Mathf.SmoothStep(0, 1, progress);
+            dashUI.UpdateDash(progress);
+
+            if (dashCooldownTimer >= dashCooldown)
+            {
+                dashCooldownTimer = 0f;
+                canDash = true;
+
+                dashUI.Hide();
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -68,8 +88,13 @@ public class PlayerMovement : MonoBehaviour
         if (InputManager.Instance.DashPressed && canDash)
         {
             canDash = false;
+
+            dashCooldownTimer = 0f;
+            dashUI.Show();
+            dashUI.UpdateDash(0f);
+
             StartCoroutine(DashCoroutine());
-            Invoke(nameof(ResetDash), dashCooldown);
+            //Invoke(nameof(ResetDash), dashCooldown);
         }
     }
 
@@ -90,14 +115,28 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-        if (!grounded)
-            return;
-
         //Calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-        rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+        //Air control multiplier
+        float controlMultiplier = grounded ? 1f : airControl;
 
+        rb.AddForce(moveDirection.normalized * moveSpeed * 10f * controlMultiplier, ForceMode.Force);
+
+        LimitSpeed();
+    }
+
+    private void LimitSpeed()
+    {
+        Vector3 flatVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
+
+        float maxSpeed = moveSpeed;
+
+        if (flatVelocity.magnitude > maxSpeed)
+        {
+            Vector3 limitedVelocity = flatVelocity.normalized * maxSpeed;
+            rb.linearVelocity = new Vector3(limitedVelocity.x, rb.linearVelocity.y, limitedVelocity.z);
+        }
     }
 
     private void Jump()
@@ -135,10 +174,10 @@ public class PlayerMovement : MonoBehaviour
         isDashing = false;
     }
 
-    private void ResetDash()
+    /*private void ResetDash()
     {
         canDash = true;
-    }
+    }*/
 
     private void OnEnable()
     {
