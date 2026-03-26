@@ -7,6 +7,7 @@ using TMPro;
 public class WeightPlatformTrigger : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI uiIndicator;
+    [SerializeField] private string originalText;
     [Space]
     [SerializeField] private int requiredWeight;
     public UnityEvent myEvent1;
@@ -23,7 +24,7 @@ public class WeightPlatformTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player"))return;
+        if (!other.CompareTag("Player")) return;
 
         limbWeight = other.GetComponent<LimbWeight>();
         if (limbWeight == null) return;
@@ -62,6 +63,7 @@ public class WeightPlatformTrigger : MonoBehaviour
             else
             {
                 Debug.Log("Second Required weight was NOT met");
+                uiIndicator.text = originalText;
             }
         } 
         else
@@ -75,6 +77,7 @@ public class WeightPlatformTrigger : MonoBehaviour
             else
             {
                 Debug.Log("Required weight was NOT met");
+                uiIndicator.text = originalText;
             }
         }
     }
