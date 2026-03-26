@@ -848,6 +848,7 @@ Transform:
   - {fileID: 6864274541412256676}
   - {fileID: 7969416108887181790}
   - {fileID: 2223799045054103848}
+  - {fileID: 2533587263875673996}
   m_Father: {fileID: 4422825829641308684}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4787026536125883035
@@ -1001,12 +1002,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4941162259552476574}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.79, y: 1.6, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.7900009, y: 0.100000024, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4422825829641308684}
+  m_Father: {fileID: 7262571678419249797}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5762788158510102768
 GameObject:
@@ -1048,7 +1049,6 @@ Transform:
   - {fileID: 3166555069400923077}
   - {fileID: 4542899957142884294}
   - {fileID: 2466135383196027024}
-  - {fileID: 2533587263875673996}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &2682336896041737395
@@ -1154,15 +1154,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LimbLauncher
   minForce: 5
   maxForce: 30
-  trajectoryLine: {fileID: 0}
-  trajectoryPoints: 30
-  timeBetweenPoints: 0.1
   forceCanvas: {fileID: 0}
   playerMovement: {fileID: 2626173141803834770}
   forceUI: {fileID: 0}
   shoulderCamController: {fileID: 7230241672026625689}
   shoulderCam: {fileID: 0}
   holdPoint: {fileID: 2533587263875673996}
+  projectileCurveVisualizer: {fileID: 0}
 --- !u!114 &7230241672026625689
 MonoBehaviour:
   m_ObjectHideFlags: 0
