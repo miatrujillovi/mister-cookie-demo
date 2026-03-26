@@ -1,16 +1,12 @@
 using Unity.Cinemachine;
 using UnityEngine;
+using ProjectileCurveVisualizerSystem;
 
 public class LimbLauncher : MonoBehaviour
 {
     [Header("Launch Settings")]
     [SerializeField] private float minForce = 5f;
     [SerializeField] private float maxForce = 30f;
-
-    [Header("Trajectory")]
-    [SerializeField] private LineRenderer trajectoryLine;
-    [SerializeField] private int trajectoryPoints = 30;
-    [SerializeField] private float timeBetweenPoints = 0.1f;
 
     [Header("References")]
     [SerializeField] private GameObject forceCanvas;
@@ -27,16 +23,19 @@ public class LimbLauncher : MonoBehaviour
     [SerializeField] private Transform holdPoint;
     private bool isHolding = false;
 
+    [Header("Projectile Visualizer")]
+    [SerializeField] private ProjectileCurveVisualizer projectileCurveVisualizer;
+
     private GameObject selectedLimb;
     private Rigidbody limbRb;
     private float currentForce;
     private bool isCharging = false;
     private bool limbSelected = false;
+    private Vector3 updatedProjectileStartPosition;
+    private RaycastHit hit;
 
     private void Start()
     {
-        trajectoryLine.useWorldSpace = true;
-        trajectoryLine.enabled = false;
         forceCanvas.SetActive(false);
     }
 
@@ -70,7 +69,6 @@ public class LimbLauncher : MonoBehaviour
             LaunchLimb();
             isCharging = false;
             currentForce = minForce; // resetea a fuerza minima
-            trajectoryLine.positionCount = 0;
             forceUI.UpdateForce(0, minForce, maxForce);
             limbSelected = false;
         }
@@ -84,26 +82,28 @@ public class LimbLauncher : MonoBehaviour
         limbSelected = true;
         isHolding = true;
         currentForce = minForce;
-        trajectoryLine.enabled = true;
         forceCanvas.SetActive(true);
         playerMovement.enabled = false;
         shoulderCamController.SetShoulderCam(true);
+        projectileCurveVisualizer.HideProjectileCurve();
     }
 
     private void DrawTrajectory()
     {
         Vector3 launchDir = GetLaunchDirection();
-        Vector3 startPos = selectedLimb.transform.position;
-        trajectoryLine.positionCount = trajectoryPoints;
 
-        for (int i = 0; i < trajectoryPoints; i++)
-        {
-            float t = i * timeBetweenPoints;
-            Vector3 point = startPos
-                + launchDir * currentForce * t
-                + 0.5f * Physics.gravity * t * t;
-            trajectoryLine.SetPosition(i, point);
-        }
+        Vector3 launchVelocity = launchDir * currentForce;
+
+        projectileCurveVisualizer.VisualizeProjectileCurve(
+            selectedLimb.transform.position, // origen
+            1.0f,                            // masa (puedes dejarlo así)
+            launchVelocity,                  // velocidad inicial
+            0.1f,                            // resolución
+            0.05f,                           // step
+            true,                            // usar raycast
+            out updatedProjectileStartPosition,
+            out hit
+        );
     }
 
     private void LaunchLimb()
@@ -112,8 +112,10 @@ public class LimbLauncher : MonoBehaviour
         limbRb.isKinematic = false;
         limbRb.linearVelocity = Vector3.zero;
         Vector3 launchDir = GetLaunchDirection();
-        limbRb.AddForce(launchDir * currentForce, ForceMode.Impulse);
-        trajectoryLine.enabled = false;
+        Vector3 launchVelocity = launchDir * currentForce;
+        selectedLimb.transform.position = updatedProjectileStartPosition;
+        limbRb.AddForce(launchVelocity, ForceMode.Impulse);
+        projectileCurveVisualizer.HideProjectileCurve();
         forceCanvas.SetActive(false);
         shoulderCamController.SetShoulderCam(false);
         playerMovement.enabled = true;
@@ -136,7 +138,7 @@ public class LimbLauncher : MonoBehaviour
             targetPoint = ray.origin + ray.direction * 50f; // apunta al aire
         }
 
-        Vector3 dir = (targetPoint - selectedLimb.transform.position).normalized;
+        Vector3 dir = (targetPoint - holdPoint.position).normalized;
         return dir;
     }
 }

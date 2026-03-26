@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MovingPlatform : MonoBehaviour
+public class PlatformMove : MonoBehaviour
 {
     [Header("Points")]
     [SerializeField] private Transform pointA;
