@@ -13,28 +13,51 @@ public class CuttingLimbs : MonoBehaviour
     [SerializeField] private List<GameObject> limbs;
     [SerializeField] private LimbLauncher limbLauncher;
 
+    [HideInInspector] public List<string> currentLimbs;
+
     public static Action<LimbType> onLimbLost;
 
-    public void CutRightHand()
+    private bool selection;
+
+    private void Start()
     {
+        foreach (var _limb in limbs)
+        {
+            currentLimbs.Add(_limb.name);
+        }
+
+        currentLimbs.Remove("Head");
+        currentLimbs.Remove("Torso");
+    }
+
+    public void CutRightHand(bool _selection)
+    {
+        selection = _selection;
+
         CutOffLimb("RightHand");
         onLimbLost?.Invoke(LimbType.Hand);
     }
 
-    public void CutLeftHand()
+    public void CutLeftHand(bool _selection)
     {
+        selection = _selection;
+
         CutOffLimb("LeftHand");
         onLimbLost?.Invoke(LimbType.Hand);
     }
 
-    public void CutRightLeg()
+    public void CutRightLeg(bool _selection)
     {
+        selection = _selection;
+
         CutOffLimb("RightLeg");
         onLimbLost?.Invoke(LimbType.Leg);
     }
 
-    public void CutLeftLeg()
+    public void CutLeftLeg(bool _selection)
     {
+        selection = _selection;
+
         CutOffLimb("LeftLeg");
         onLimbLost?.Invoke(LimbType.Leg);
     }
@@ -45,6 +68,7 @@ public class CuttingLimbs : MonoBehaviour
         {
             if (obj.name == _limbName)
             {
+                currentLimbs.Remove(obj.name);
                 DeparentObject(obj);
             }
         }
@@ -58,6 +82,9 @@ public class CuttingLimbs : MonoBehaviour
 
         InputManager.Instance.DisableSelection();
 
-        limbLauncher.SetSelectedLimb(_child);
+        if (selection)
+        {
+            limbLauncher.SetSelectedLimb(_child);
+        }
     }
 }
