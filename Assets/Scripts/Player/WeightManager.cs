@@ -2,12 +2,24 @@ using UnityEngine;
 
 public class WeightManager : MonoBehaviour
 {
+    public static WeightManager instance;
+
     [SerializeField] private int torsoHeadWeight = 5;
     [SerializeField] private int handWeight = 2;
     [SerializeField] private int legWeight = 3;
 
     private int totalPlayerWeight;
     private int currentWeight;
+
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+    }
 
     private void Start()
     {

@@ -38,7 +38,13 @@ public class InputManager : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
         Instance = this;
+        DontDestroyOnLoad(gameObject);
 
         //Access the Player Action Map
         playerInputs = new PlayerControls();
@@ -109,6 +115,18 @@ public class InputManager : MonoBehaviour
     {
         selection = false;
     }
+
+    public void EnableSelection()
+    {
+        selectionMenu.Enable();
+    }
+
+    public void DisableSelection()
+    {
+        selectionMenu.Disable();
+        selection = false;
+    }
+
     private void HandleJump(InputAction.CallbackContext ctx)
     {
         Debug.Log("HandleJump disparado");
