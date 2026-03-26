@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 22086634}
   - component: {fileID: 22086633}
   - component: {fileID: 22086632}
+  - component: {fileID: 22086636}
   m_Layer: 0
   m_Name: Cuchillo guillotina 2
   m_TagString: Untagged
@@ -233,6 +234,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &22086636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22086631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa7a01ee7b985844b69fe344e183007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KniveObstacle
+  type: 0
+  degolladorAnimDuration: 0.1
+  degolladorTimerToGoBackUp: 1.2
+  degolladorDistanceInY: 3
+  makeDegolladoresGoAtDifferentSpeeds: 1
+  giradoresAnimSpeed: 0
+  makeGiradoresGoAtDifferentSpeeds: 0
 --- !u!1 &44557420
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,6 +265,7 @@ GameObject:
   - component: {fileID: 44557423}
   - component: {fileID: 44557422}
   - component: {fileID: 44557421}
+  - component: {fileID: 44557425}
   m_Layer: 0
   m_Name: Cuchillo giratorio 7
   m_TagString: Untagged
@@ -340,13 +361,32 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 44557420}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: 167.57, y: 25.52, z: 0.4607799}
   m_LocalScale: {x: 0.43824944, y: 6.4749017, z: 0.7311676}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
+--- !u!114 &44557425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44557420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa7a01ee7b985844b69fe344e183007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KniveObstacle
+  type: 1
+  degolladorAnimDuration: 0
+  degolladorTimerToGoBackUp: 0
+  degolladorDistanceInY: 0
+  makeDegolladoresGoAtDifferentSpeeds: 0
+  giradoresAnimSpeed: 2
+  makeGiradoresGoAtDifferentSpeeds: 1
 --- !u!1 &56776646
 GameObject:
   m_ObjectHideFlags: 0
@@ -3070,6 +3110,7 @@ GameObject:
   - component: {fileID: 896004565}
   - component: {fileID: 896004564}
   - component: {fileID: 896004563}
+  - component: {fileID: 896004567}
   m_Layer: 0
   m_Name: Cuchillo giratorio 2
   m_TagString: Untagged
@@ -3172,6 +3213,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &896004567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896004562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa7a01ee7b985844b69fe344e183007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KniveObstacle
+  type: 2
+  degolladorAnimDuration: 0
+  degolladorTimerToGoBackUp: 0
+  degolladorDistanceInY: 0
+  makeDegolladoresGoAtDifferentSpeeds: 0
+  giradoresAnimSpeed: 2
+  makeGiradoresGoAtDifferentSpeeds: 0
 --- !u!1001 &902348835
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3695,6 +3755,7 @@ GameObject:
   - component: {fileID: 1134386068}
   - component: {fileID: 1134386067}
   - component: {fileID: 1134386066}
+  - component: {fileID: 1134386070}
   m_Layer: 0
   m_Name: Cuchillo guillotina
   m_TagString: Untagged
@@ -3797,6 +3858,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &1134386070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134386065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa7a01ee7b985844b69fe344e183007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KniveObstacle
+  type: 0
+  degolladorAnimDuration: 0.1
+  degolladorTimerToGoBackUp: 1.2
+  degolladorDistanceInY: 3
+  makeDegolladoresGoAtDifferentSpeeds: 1
+  giradoresAnimSpeed: 0
+  makeGiradoresGoAtDifferentSpeeds: 0
 --- !u!1 &1158437703
 GameObject:
   m_ObjectHideFlags: 0
@@ -4113,6 +4193,7 @@ GameObject:
   - component: {fileID: 1207481600}
   - component: {fileID: 1207481599}
   - component: {fileID: 1207481598}
+  - component: {fileID: 1207481602}
   m_Layer: 0
   m_Name: Cuchillo guillotina 3
   m_TagString: Untagged
@@ -4215,6 +4296,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &1207481602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207481597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa7a01ee7b985844b69fe344e183007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KniveObstacle
+  type: 0
+  degolladorAnimDuration: 0.1
+  degolladorTimerToGoBackUp: 1.2
+  degolladorDistanceInY: 3
+  makeDegolladoresGoAtDifferentSpeeds: 1
+  giradoresAnimSpeed: 0
+  makeGiradoresGoAtDifferentSpeeds: 0
 --- !u!1 &1377178016
 GameObject:
   m_ObjectHideFlags: 0
@@ -4227,6 +4327,7 @@ GameObject:
   - component: {fileID: 1377178019}
   - component: {fileID: 1377178018}
   - component: {fileID: 1377178017}
+  - component: {fileID: 1377178021}
   m_Layer: 0
   m_Name: Cuchillo giratorio 3
   m_TagString: Untagged
@@ -4329,6 +4430,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1377178021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377178016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa7a01ee7b985844b69fe344e183007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KniveObstacle
+  type: 2
+  degolladorAnimDuration: 0
+  degolladorTimerToGoBackUp: 0
+  degolladorDistanceInY: 0
+  makeDegolladoresGoAtDifferentSpeeds: 0
+  giradoresAnimSpeed: 2
+  makeGiradoresGoAtDifferentSpeeds: 1
 --- !u!4 &1405870482 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3166555069400923077, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
@@ -5357,6 +5477,7 @@ GameObject:
   - component: {fileID: 1706448298}
   - component: {fileID: 1706448297}
   - component: {fileID: 1706448296}
+  - component: {fileID: 1706448300}
   m_Layer: 0
   m_Name: Cuchillo giratorio 6
   m_TagString: Untagged
@@ -5452,13 +5573,32 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1706448295}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: 155.59, y: 25.52, z: 0.4607799}
   m_LocalScale: {x: 0.43824944, y: 6.4749017, z: 0.7311676}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
+--- !u!114 &1706448300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706448295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa7a01ee7b985844b69fe344e183007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KniveObstacle
+  type: 1
+  degolladorAnimDuration: 0
+  degolladorTimerToGoBackUp: 0
+  degolladorDistanceInY: 0
+  makeDegolladoresGoAtDifferentSpeeds: 0
+  giradoresAnimSpeed: 2
+  makeGiradoresGoAtDifferentSpeeds: 1
 --- !u!1 &1715337761
 GameObject:
   m_ObjectHideFlags: 0
@@ -6040,6 +6180,7 @@ GameObject:
   - component: {fileID: 1860845932}
   - component: {fileID: 1860845931}
   - component: {fileID: 1860845930}
+  - component: {fileID: 1860845934}
   m_Layer: 0
   m_Name: Cuchillo giratorio 4
   m_TagString: Untagged
@@ -6142,6 +6283,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1860845934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860845929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa7a01ee7b985844b69fe344e183007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KniveObstacle
+  type: 2
+  degolladorAnimDuration: 0
+  degolladorTimerToGoBackUp: 0
+  degolladorDistanceInY: 0
+  makeDegolladoresGoAtDifferentSpeeds: 0
+  giradoresAnimSpeed: 2
+  makeGiradoresGoAtDifferentSpeeds: 1
 --- !u!1 &1884586042
 GameObject:
   m_ObjectHideFlags: 0
@@ -6266,6 +6426,7 @@ GameObject:
   - component: {fileID: 2037276914}
   - component: {fileID: 2037276913}
   - component: {fileID: 2037276912}
+  - component: {fileID: 2037276916}
   m_Layer: 0
   m_Name: Cuchillo giratorio 5
   m_TagString: Untagged
@@ -6368,6 +6529,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2037276916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037276911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa7a01ee7b985844b69fe344e183007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KniveObstacle
+  type: 2
+  degolladorAnimDuration: 0
+  degolladorTimerToGoBackUp: 0
+  degolladorDistanceInY: 0
+  makeDegolladoresGoAtDifferentSpeeds: 0
+  giradoresAnimSpeed: 2
+  makeGiradoresGoAtDifferentSpeeds: 1
 --- !u!1 &2043520429
 GameObject:
   m_ObjectHideFlags: 0
