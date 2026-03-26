@@ -11,6 +11,8 @@ public class CutTrigger : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
 
+        if (other.transform.root != cuttingLimbs.transform.root) return;
+
         if (hasTrigerred) return;
 
         hasTrigerred = true;
@@ -33,7 +35,8 @@ public class CutTrigger : MonoBehaviour
 
         if (limbCounter == 0)
         {
-            Debug.LogError("No Limbs Left Found");
+            Debug.Log("Player has died");
+            LevelRestart.Instance.RestartingLevel();
             return;
         }
 

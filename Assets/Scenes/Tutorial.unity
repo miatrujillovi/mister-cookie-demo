@@ -340,6 +340,7 @@ Transform:
   m_Children:
   - {fileID: 1821737916}
   - {fileID: 2072128314}
+  - {fileID: 2020428023}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &129057982
@@ -1115,12 +1116,43 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1921384337284857725, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
   m_PrefabInstance: {fileID: 850166364}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 638714558}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 720c37612f7b60e48a42b51637dde57e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CuttingLimbs
+--- !u!1 &300469576
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 300469577}
+  m_Layer: 0
+  m_Name: StartingLevelPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &300469577
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300469576}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -64.50018, y: 0.00000011920929, z: -35.44364}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2020428023}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &318193973
 GameObject:
   m_ObjectHideFlags: 0
@@ -1430,6 +1462,7 @@ GameObject:
   - component: {fileID: 417242314}
   - component: {fileID: 417242313}
   - component: {fileID: 417242312}
+  - component: {fileID: 417242316}
   m_Layer: 0
   m_Name: VentiladorHorizontal
   m_TagString: Untagged
@@ -1524,12 +1557,31 @@ Transform:
   m_GameObject: {fileID: 417242311}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5067705, y: -0.5067706, z: 0.49313653, w: 0.49313653}
-  m_LocalPosition: {x: -1.6372414, y: 1.52, z: -19.108772}
+  m_LocalPosition: {x: -1.64, y: 1.52, z: -18.95}
   m_LocalScale: {x: 0.062414616, y: 0.6632243, z: 3.7498105}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 142473548}
   m_LocalEulerAnglesHint: {x: 0, y: -91.562, z: 90}
+--- !u!114 &417242316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417242311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa7a01ee7b985844b69fe344e183007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KniveObstacle
+  type: 1
+  degolladorAnimDuration: 0
+  degolladorTimerToGoBackUp: 0
+  degolladorDistanceInY: 0
+  makeDegolladoresGoAtDifferentSpeeds: 0
+  giradoresAnimSpeed: 0.5
+  makeGiradoresGoAtDifferentSpeeds: 0
 --- !u!1 &449774356
 GameObject:
   m_ObjectHideFlags: 0
@@ -2195,6 +2247,7 @@ GameObject:
   m_Component:
   - component: {fileID: 561934005}
   - component: {fileID: 561934006}
+  - component: {fileID: 561934007}
   m_Layer: 0
   m_Name: CutTrigger
   m_TagString: Untagged
@@ -2238,6 +2291,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.3798266, z: 1}
   m_Center: {x: 4.5776317e-14, y: -0.4132509, z: -3.1372957e-15}
+--- !u!114 &561934007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561934004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ae06c273d39e584daf79cd79b507d0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CutTrigger
+  cuttingLimbs: {fileID: 288362607}
 --- !u!1 &593091053
 GameObject:
   m_ObjectHideFlags: 0
@@ -2496,6 +2562,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &638714558 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5762788158510102768, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
+  m_PrefabInstance: {fileID: 850166364}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &678001058
 GameObject:
   m_ObjectHideFlags: 0
@@ -3444,7 +3515,7 @@ Transform:
   m_GameObject: {fileID: 836634271}
   serializedVersion: 2
   m_LocalRotation: {x: -0.00000016208591, y: -0.7128894, z: -0.0000002699841, w: 0.70127654}
-  m_LocalPosition: {x: -1.32, y: 0.84, z: -21.79}
+  m_LocalPosition: {x: -1.32, y: 0.83, z: -21.79}
   m_LocalScale: {x: 14.932645, y: 0.12836, z: 3.8714185}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6321,6 +6392,7 @@ GameObject:
   - component: {fileID: 1579370154}
   - component: {fileID: 1579370153}
   - component: {fileID: 1579370152}
+  - component: {fileID: 1579370156}
   m_Layer: 0
   m_Name: Cuchilla
   m_TagString: Untagged
@@ -6414,14 +6486,33 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1579370151}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.00000016354775, y: -0.7166822, z: -0.00000026910124, w: 0.6974}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -1.7400017, y: 4.899998, z: -13.64851}
   m_LocalScale: {x: 0.027231343, y: 0.6632242, z: 3.9293413}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 561934005}
   m_Father: {fileID: 142473548}
-  m_LocalEulerAnglesHint: {x: 0, y: -91.562, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!114 &1579370156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579370151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa7a01ee7b985844b69fe344e183007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KniveObstacle
+  type: 0
+  degolladorAnimDuration: 0.1
+  degolladorTimerToGoBackUp: 1.2
+  degolladorDistanceInY: 3
+  makeDegolladoresGoAtDifferentSpeeds: 0
+  giradoresAnimSpeed: 0
+  makeGiradoresGoAtDifferentSpeeds: 0
 --- !u!1 &1586310059
 GameObject:
   m_ObjectHideFlags: 0
@@ -6710,35 +6801,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2611648284155710603, guid: 26b4da4536a8560458628d1e4056abf9, type: 3}
       propertyPath: field of view
-      value: 60.000004
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 6127660547664944785, guid: 26b4da4536a8560458628d1e4056abf9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.84497
+      value: -66.634155
       objectReference: {fileID: 0}
     - target: {fileID: 6127660547664944785, guid: 26b4da4536a8560458628d1e4056abf9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.038
+      value: 2.5300002
       objectReference: {fileID: 0}
     - target: {fileID: 6127660547664944785, guid: 26b4da4536a8560458628d1e4056abf9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.54571
+      value: -41.399353
       objectReference: {fileID: 0}
     - target: {fileID: 6127660547664944785, guid: 26b4da4536a8560458628d1e4056abf9, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.99836475
       objectReference: {fileID: 0}
     - target: {fileID: 6127660547664944785, guid: 26b4da4536a8560458628d1e4056abf9, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.057126015
       objectReference: {fileID: 0}
     - target: {fileID: 6127660547664944785, guid: 26b4da4536a8560458628d1e4056abf9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.0021076526
       objectReference: {fileID: 0}
     - target: {fileID: 6127660547664944785, guid: 26b4da4536a8560458628d1e4056abf9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.000120599
       objectReference: {fileID: 0}
     - target: {fileID: 6873388462212321372, guid: 26b4da4536a8560458628d1e4056abf9, type: 3}
       propertyPath: Target.TrackingTarget
@@ -6758,19 +6849,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7319099812826849435, guid: 26b4da4536a8560458628d1e4056abf9, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9983644
+      value: 0.99836475
       objectReference: {fileID: 0}
     - target: {fileID: 7319099812826849435, guid: 26b4da4536a8560458628d1e4056abf9, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.057125982
+      value: 0.05712602
       objectReference: {fileID: 0}
     - target: {fileID: 7319099812826849435, guid: 26b4da4536a8560458628d1e4056abf9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0022947302
+      value: 0.0021076524
       objectReference: {fileID: 0}
     - target: {fileID: 7319099812826849435, guid: 26b4da4536a8560458628d1e4056abf9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00013130013
+      value: -0.000120599005
       objectReference: {fileID: 0}
     - target: {fileID: 8909865306888513102, guid: 26b4da4536a8560458628d1e4056abf9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6805,6 +6896,7 @@ GameObject:
   - component: {fileID: 1613397397}
   - component: {fileID: 1613397396}
   - component: {fileID: 1613397395}
+  - component: {fileID: 1613397399}
   m_Layer: 0
   m_Name: Ventilador Vertical
   m_TagString: Untagged
@@ -6898,13 +6990,32 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1613397394}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.49313626, y: -0.5067709, z: 0.5067703, w: 0.49313667}
-  m_LocalPosition: {x: -1.5311699, y: 2.8000007, z: -22.997345}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: -1.5311699, y: 2.8000007, z: -23.87}
   m_LocalScale: {x: 0.062414624, y: 0.6632243, z: 3.2721834}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 142473548}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 91.562}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 90}
+--- !u!114 &1613397399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613397394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa7a01ee7b985844b69fe344e183007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KniveObstacle
+  type: 1
+  degolladorAnimDuration: 0
+  degolladorTimerToGoBackUp: 0
+  degolladorDistanceInY: 0
+  makeDegolladoresGoAtDifferentSpeeds: 0
+  giradoresAnimSpeed: 0.5
+  makeGiradoresGoAtDifferentSpeeds: 0
 --- !u!1 &1639909769
 GameObject:
   m_ObjectHideFlags: 0
@@ -8177,6 +8288,53 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2004248648}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2020428022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2020428023}
+  - component: {fileID: 2020428024}
+  m_Layer: 0
+  m_Name: LevelRestart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2020428023
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020428022}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 300469577}
+  m_Father: {fileID: 47868049}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2020428024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020428022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32c497441a5c49744a89e286df15fc81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelRestart
+  startingPosition: {fileID: 300469577}
+  player: {fileID: 638714558}
 --- !u!1 &2031525369
 GameObject:
   m_ObjectHideFlags: 0
