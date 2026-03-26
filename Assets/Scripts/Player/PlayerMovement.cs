@@ -28,7 +28,6 @@ public class PlayerMovement : MonoBehaviour
 
     private float horizontalInput;
     private float verticalInput;
-
     private Vector3 moveDirection;
     private Rigidbody rb;
 
@@ -39,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        InputManager.Instance.OnJump += TryJump;
     }
 
     private void Update()
@@ -89,7 +89,10 @@ public class PlayerMovement : MonoBehaviour
         //Calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-        rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+        Vector3 velocity = rb.linearVelocity;
+        Vector3 targetVelocity = moveDirection.normalized * moveSpeed;
+
+        rb.linearVelocity = new Vector3(targetVelocity.x, velocity.y, targetVelocity.z);
     }
 
     private void Jump()
@@ -123,12 +126,6 @@ public class PlayerMovement : MonoBehaviour
     private void ResetDash()
     {
         canDash = true;
-    }
-
-    private void OnEnable()
-    {
-        // Espera a que InputManager exista
-        InputManager.Instance.OnJump += TryJump;
     }
 
     private void OnDisable()
