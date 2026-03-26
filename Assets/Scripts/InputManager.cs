@@ -114,6 +114,18 @@ public class InputManager : MonoBehaviour
     {
         selection = false;
     }
+
+    public void EnableSelection()
+    {
+        selectionMenu.Enable();
+    }
+
+    public void DisableSelection()
+    {
+        selectionMenu.Disable();
+        selection = false;
+    }
+
     private void HandleJump(InputAction.CallbackContext ctx)
     {
         Debug.Log("HandleJump disparado");

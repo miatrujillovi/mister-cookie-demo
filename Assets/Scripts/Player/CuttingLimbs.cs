@@ -55,6 +55,9 @@ public class CuttingLimbs : MonoBehaviour
         _child.transform.SetParent(null, true);
         Rigidbody childRB = _child.AddComponent<Rigidbody>();
         //BoxCollider boxCollider = _child.AddComponent<BoxCollider>();
+
+        InputManager.Instance.DisableSelection();
+
         limbLauncher.SetSelectedLimb(_child);
     }
 }
