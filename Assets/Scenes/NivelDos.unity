@@ -270,6 +270,7 @@ GameObject:
   - component: {fileID: 157644408}
   - component: {fileID: 157644407}
   - component: {fileID: 157644406}
+  - component: {fileID: 157644410}
   m_Layer: 0
   m_Name: CUCHILLA 360 (1)
   m_TagString: Untagged
@@ -372,6 +373,25 @@ Transform:
   - {fileID: 1528006649}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &157644410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157644405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa7a01ee7b985844b69fe344e183007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KniveObstacle
+  type: 2
+  degolladorAnimDuration: 0
+  degolladorTimerToGoBackUp: 0
+  degolladorDistanceInY: 0
+  makeDegolladoresGoAtDifferentSpeeds: 0
+  giradoresAnimSpeed: 2
+  makeGiradoresGoAtDifferentSpeeds: 1
 --- !u!1 &173341460
 GameObject:
   m_ObjectHideFlags: 0
@@ -1478,6 +1498,7 @@ GameObject:
   - component: {fileID: 657626501}
   - component: {fileID: 657626500}
   - component: {fileID: 657626499}
+  - component: {fileID: 657626503}
   m_Layer: 0
   m_Name: CUCHILLA 360
   m_TagString: Untagged
@@ -1578,6 +1599,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &657626503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 657626498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa7a01ee7b985844b69fe344e183007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KniveObstacle
+  type: 2
+  degolladorAnimDuration: 0
+  degolladorTimerToGoBackUp: 0
+  degolladorDistanceInY: 0
+  makeDegolladoresGoAtDifferentSpeeds: 0
+  giradoresAnimSpeed: 2
+  makeGiradoresGoAtDifferentSpeeds: 1
 --- !u!1 &763037147
 GameObject:
   m_ObjectHideFlags: 0
@@ -3988,6 +4028,7 @@ GameObject:
   - component: {fileID: 1575136705}
   - component: {fileID: 1575136704}
   - component: {fileID: 1575136703}
+  - component: {fileID: 1575136707}
   m_Layer: 0
   m_Name: CUCHILLA 360 (2)
   m_TagString: Untagged
@@ -4088,6 +4129,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1575136707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1575136702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa7a01ee7b985844b69fe344e183007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KniveObstacle
+  type: 2
+  degolladorAnimDuration: 0
+  degolladorTimerToGoBackUp: 0
+  degolladorDistanceInY: 0
+  makeDegolladoresGoAtDifferentSpeeds: 0
+  giradoresAnimSpeed: 2
+  makeGiradoresGoAtDifferentSpeeds: 1
 --- !u!1 &1599339501
 GameObject:
   m_ObjectHideFlags: 0
@@ -4212,6 +4272,7 @@ GameObject:
   - component: {fileID: 1604958680}
   - component: {fileID: 1604958679}
   - component: {fileID: 1604958678}
+  - component: {fileID: 1604958682}
   m_Layer: 0
   m_Name: Cube (32)
   m_TagString: Untagged
@@ -4312,6 +4373,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1604958682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604958677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa7a01ee7b985844b69fe344e183007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KniveObstacle
+  type: 2
+  degolladorAnimDuration: 0
+  degolladorTimerToGoBackUp: 0
+  degolladorDistanceInY: 0
+  makeDegolladoresGoAtDifferentSpeeds: 0
+  giradoresAnimSpeed: 2
+  makeGiradoresGoAtDifferentSpeeds: 1
 --- !u!1 &1613963490
 GameObject:
   m_ObjectHideFlags: 0
@@ -6040,6 +6120,7 @@ GameObject:
   - component: {fileID: 2016068356}
   - component: {fileID: 2016068355}
   - component: {fileID: 2016068354}
+  - component: {fileID: 2016068358}
   m_Layer: 0
   m_Name: Cube (31)
   m_TagString: Untagged
@@ -6140,6 +6221,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2016068358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016068353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa7a01ee7b985844b69fe344e183007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KniveObstacle
+  type: 2
+  degolladorAnimDuration: 0
+  degolladorTimerToGoBackUp: 0
+  degolladorDistanceInY: 0
+  makeDegolladoresGoAtDifferentSpeeds: 0
+  giradoresAnimSpeed: 2
+  makeGiradoresGoAtDifferentSpeeds: 1
 --- !u!1001 &2049528156
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6268,6 +6368,7 @@ GameObject:
   - component: {fileID: 2145843639}
   - component: {fileID: 2145843638}
   - component: {fileID: 2145843637}
+  - component: {fileID: 2145843641}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -6368,6 +6469,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2145843641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145843636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa7a01ee7b985844b69fe344e183007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KniveObstacle
+  type: 0
+  degolladorAnimDuration: 0.1
+  degolladorTimerToGoBackUp: 1.2
+  degolladorDistanceInY: 10
+  makeDegolladoresGoAtDifferentSpeeds: 0
+  giradoresAnimSpeed: 0
+  makeGiradoresGoAtDifferentSpeeds: 0
 --- !u!224 &472737199642614589
 RectTransform:
   m_ObjectHideFlags: 0
