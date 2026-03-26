@@ -31,7 +31,6 @@ public class PlayerMovement : MonoBehaviour
 
     private float horizontalInput;
     private float verticalInput;
-
     private Vector3 moveDirection;
     private Rigidbody rb;
 
@@ -42,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        InputManager.Instance.OnJump += TryJump;
     }
 
     private void Update()
@@ -159,7 +159,7 @@ public class PlayerMovement : MonoBehaviour
         float originalDrag = rb.linearDamping;
         rb.linearDamping = 0f;
 
-        // Direccion del dash — si no hay input dashea hacia el frente
+        // Direccion del dash ï¿½ si no hay input dashea hacia el frente
         Vector3 dashDir = moveDirection.normalized;
         if (dashDir == Vector3.zero)
             dashDir = orientation.forward;

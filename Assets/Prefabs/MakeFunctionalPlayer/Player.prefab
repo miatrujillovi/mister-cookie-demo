@@ -1023,6 +1023,7 @@ GameObject:
   - component: {fileID: 3574950281822473382}
   - component: {fileID: 3701012884619215742}
   - component: {fileID: 7230241672026625689}
+  - component: {fileID: 2787835652037480877}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1178,4 +1179,16 @@ MonoBehaviour:
   shoulderCam: {fileID: 0}
   shoulderTarget: {fileID: 2466135383196027024}
   orientation: {fileID: 3166555069400923077}
-  blendTime: 1
+  blendTime: 0.1
+--- !u!114 &2787835652037480877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5762788158510102768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 091820ebf5717f747a812d336a31e758, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlatformHandler
