@@ -37,7 +37,13 @@ public class InputManager : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
         Instance = this;
+        DontDestroyOnLoad(gameObject);
 
         //Access the Player Action Map
         playerInputs = new PlayerControls();
