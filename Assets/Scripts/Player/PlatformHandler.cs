@@ -8,7 +8,7 @@ public class PlatformHandler : MonoBehaviour
         {
             if (collision.contacts[0].normal.y > 0.5f)
             {
-                transform.parent = collision.transform;
+                collision.transform.SetParent(transform);
             }
         }
     }
@@ -17,7 +17,7 @@ public class PlatformHandler : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Platform"))
         {
-            transform.parent = null;
+            collision.transform.SetParent(null);
         }
     }
 }
