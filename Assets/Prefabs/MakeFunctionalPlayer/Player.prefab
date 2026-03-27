@@ -655,8 +655,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0.00000047683716, z: 0}
+  m_Size: {x: 0.58669525, y: 1, z: 1}
+  m_Center: {x: -0.017339163, y: 0.0000004739781, z: 0}
 --- !u!114 &4175183215556830445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -785,6 +785,7 @@ MonoBehaviour:
   - {fileID: 2125229515462477610}
   - {fileID: 6040901561525012720}
   limbLauncher: {fileID: 8775956565428407119}
+  currentLimbs: []
 --- !u!114 &8196897944999402247
 MonoBehaviour:
   m_ObjectHideFlags: 0
