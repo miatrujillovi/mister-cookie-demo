@@ -10,17 +10,18 @@ public class PauseManager : MonoBehaviour
     {
         if (InputManager.Instance.Pause)
         {
-            isPaused = !isPaused;
-
-            if (isPaused)
-            {
-                PauseGame();
-            } 
-            else
-            {
-                ResumeGame();
-            }
+            TogglePause();
         } 
+    }
+
+    private void TogglePause()
+    {
+        isPaused = !isPaused;
+
+        if (isPaused)
+            PauseGame();
+        else
+            ResumeGame();
     }
 
     private void PauseGame()
@@ -34,6 +35,8 @@ public class PauseManager : MonoBehaviour
 
     public void ResumeGame()
     {
+        isPaused = false;
+
         Time.timeScale = 1;
         pauseUI.SetActive(false);
 
