@@ -2056,7 +2056,7 @@ PrefabInstance:
       objectReference: {fileID: 2117499019}
     - target: {fileID: 5787470157052381213, guid: 7e1851eb0d8b20048a616a578a7b55c7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CutRightLeg
+      value: CutLeftLeg
       objectReference: {fileID: 0}
     - target: {fileID: 7726400320775807746, guid: 7e1851eb0d8b20048a616a578a7b55c7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3253,12 +3253,18 @@ MonoBehaviour:
   uiIndicator: {fileID: 6774680858298247553}
   originalText: 2x
   requiredWeight: 2
-  myEvent1:
+  eventsToStart1:
+    m_PersistentCalls:
+      m_Calls: []
+  eventsToStop1:
     m_PersistentCalls:
       m_Calls: []
   doubleWeightRequired: 1
   secondRequiredWeight: 4
-  myEvent2:
+  eventsToStart2:
+    m_PersistentCalls:
+      m_Calls: []
+  eventsToStop2:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &896004562
@@ -5984,7 +5990,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 966802412900836223, guid: 26b4da4536a8560458628d1e4056abf9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 22.684
+      value: 22.7
       objectReference: {fileID: 0}
     - target: {fileID: 966802412900836223, guid: 26b4da4536a8560458628d1e4056abf9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6204,7 +6210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8709861161536220906, guid: 26b4da4536a8560458628d1e4056abf9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 22.684
+      value: 22.7
       objectReference: {fileID: 0}
     - target: {fileID: 8709861161536220906, guid: 26b4da4536a8560458628d1e4056abf9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7075,6 +7081,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 624510174602792216, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
+      propertyPath: freeLookCam
+      value: 
+      objectReference: {fileID: 1731374226}
+    - target: {fileID: 624510174602792216, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
+      propertyPath: shoulderCam
+      value: 
+      objectReference: {fileID: 1731374225}
     - target: {fileID: 2626173141803834770, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
       propertyPath: dashUI
       value: 
@@ -7159,10 +7173,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5626004311996399497, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5626004311996399497, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 20.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 5626004311996399497, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5762788158510102768, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6991466348033086013, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
+      propertyPath: forceUI
+      value: 
+      objectReference: {fileID: 902348837}
+    - target: {fileID: 6991466348033086013, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
+      propertyPath: forceCanvas
+      value: 
+      objectReference: {fileID: 902348836}
+    - target: {fileID: 6991466348033086013, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
+      propertyPath: shoulderCam
+      value: 
+      objectReference: {fileID: 1731374225}
+    - target: {fileID: 6991466348033086013, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
+      propertyPath: projectileCurveVisualizer
+      value: 
+      objectReference: {fileID: 698301077}
     - target: {fileID: 7230241672026625689, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
       propertyPath: freeLookCam
       value: 
@@ -7171,6 +7213,10 @@ PrefabInstance:
       propertyPath: shoulderCam
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7377915910097015836, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
+      propertyPath: dashUI
+      value: 
+      objectReference: {fileID: 2043520434}
     - target: {fileID: 8775956565428407119, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
       propertyPath: forceUI
       value: 
@@ -7194,27 +7240,27 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
 --- !u!4 &2117499015 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 6564990774516816295, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4844711746581332534, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
   m_PrefabInstance: {fileID: 2117499014}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &2117499016 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 2818851912449568660, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5626004311996399497, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
   m_PrefabInstance: {fileID: 2117499014}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &2117499017 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 6481652112921421131, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 796728226738256900, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
   m_PrefabInstance: {fileID: 2117499014}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &2117499018 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4905682105171059478, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7236065230575732968, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
   m_PrefabInstance: {fileID: 2117499014}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &2117499019 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8286214839579662987, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 9053145258404345273, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
   m_PrefabInstance: {fileID: 2117499014}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
