@@ -141,4 +141,17 @@ public class LimbLauncher : MonoBehaviour
         Vector3 dir = (targetPoint - holdPoint.position).normalized;
         return dir;
     }
+
+    public void ResetLauncher()
+    {
+        selectedLimb = null;
+        limbRb = null;
+        limbSelected = false;
+        isHolding = false;
+        isCharging = false;
+        currentForce = minForce;
+        forceCanvas.SetActive(false);
+        shoulderCamController.SetShoulderCam(false);
+        playerMovement.enabled = true;
+    }
 }

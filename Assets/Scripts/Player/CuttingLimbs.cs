@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CuttingLimbs : MonoBehaviour
 {
@@ -18,6 +19,25 @@ public class CuttingLimbs : MonoBehaviour
     public static Action<LimbType> onLimbLost;
 
     private bool selection;
+
+    // Guardar estado original de cada extremidad
+    private Dictionary<string, Transform> originalParents = new Dictionary<string, Transform>();
+    private Dictionary<string, Vector3> originalLocalPositions = new Dictionary<string, Vector3>();
+    private Dictionary<string, Quaternion> originalLocalRotations = new Dictionary<string, Quaternion>();
+    private List<GameObject> cutLimbs = new List<GameObject>();
+
+    [SerializeField] private List<Button> limbButtons;
+
+    private void Awake()
+    {
+        // Guarda posicion original antes de que cualquier cosa se mueva
+        foreach (GameObject limb in limbs)
+        {
+            originalParents[limb.name] = limb.transform.parent;
+            originalLocalPositions[limb.name] = limb.transform.localPosition;
+            originalLocalRotations[limb.name] = limb.transform.localRotation;
+        }
+    }
 
     private void Start()
     {
@@ -78,6 +98,7 @@ public class CuttingLimbs : MonoBehaviour
     {
         _child.transform.SetParent(null, true);
         Rigidbody childRB = _child.AddComponent<Rigidbody>();
+        cutLimbs.Add(_child);
         //BoxCollider boxCollider = _child.AddComponent<BoxCollider>();
 
         InputManager.Instance.DisableSelection();
@@ -86,5 +107,47 @@ public class CuttingLimbs : MonoBehaviour
         {
             limbLauncher.SetSelectedLimb(_child);
         }
+    }
+
+    public void RegenerateLimbs()
+    {
+        // Desactiva las extremidades lanzadas en lugar de destruirlas
+        foreach (GameObject limb in cutLimbs)
+        {
+            if (limb != null)
+                limb.SetActive(false);
+        }
+        cutLimbs.Clear();
+
+        // Restaura cada extremidad a su estado original
+        foreach (GameObject limb in limbs)
+        {
+            if (limb == null) continue;
+
+            Rigidbody rb = limb.GetComponent<Rigidbody>();
+            if (rb != null) Destroy(rb);
+
+            limb.transform.SetParent(originalParents[limb.name]);
+            limb.transform.localPosition = originalLocalPositions[limb.name];
+            limb.transform.localRotation = originalLocalRotations[limb.name];
+            limb.SetActive(true);
+        }
+
+        currentLimbs.Clear();
+        foreach (GameObject limb in limbs)
+        {
+            if (limb == null) continue;
+            currentLimbs.Add(limb.name);
+        }
+        currentLimbs.Remove("Head");
+        currentLimbs.Remove("Torso");
+
+        foreach (Button btn in limbButtons)
+        {
+            if (btn != null)
+                btn.enabled = true;
+        }
+
+        limbLauncher.ResetLauncher();
     }
 }
