@@ -6,11 +6,13 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField] private Transform initialPosition, targetPosition;
     [SerializeField] private float speed = 2f;
     [SerializeField] private float waitTime = 1.5f;
+    [SerializeField] private bool buttonActivated = false;
 
     private Rigidbody rb;
     private Vector3 currentTarget;
     private bool goingToTarget = true;
     private bool isWaiting = false;
+    private bool stop = false;
 
     void Start()
     {
@@ -22,7 +24,11 @@ public class MovingPlatform : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (stop) return;
+
         if (isWaiting) return;
+
+        if (buttonActivated) return;
 
         Vector3 newPosition = Vector3.MoveTowards(rb.position,currentTarget,speed * Time.fixedDeltaTime);
 
@@ -44,5 +50,16 @@ public class MovingPlatform : MonoBehaviour
         currentTarget = goingToTarget ? targetPosition.position : initialPosition.position;
 
         isWaiting = false;
+    }
+
+    public void ActivatePlatform()
+    {
+        buttonActivated = false;
+        stop = false;
+    }
+
+    public void StopPlatformMovement()
+    {
+        stop = true;
     }
 }

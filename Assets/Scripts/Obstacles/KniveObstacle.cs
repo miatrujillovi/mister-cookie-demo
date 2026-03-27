@@ -31,11 +31,11 @@ public class KniveObstacle : MonoBehaviour
             break;
 
             case KniveType.GiradorHorizontal:
-                GiradoresMovement();
+                GiradorHorizontalMovement();
             break;
 
             case KniveType.GiradorVertical:
-                GiradoresMovement();
+                GiradorVerticalMovement();
             break;
 
             default:
@@ -70,7 +70,7 @@ public class KniveObstacle : MonoBehaviour
         seq.SetLoops(-1, LoopType.Yoyo); //Establish a loop
     }
 
-    private void GiradoresMovement()
+    private void GiradorHorizontalMovement()
     {
         float speed = giradoresAnimSpeed;
 
@@ -80,6 +80,19 @@ public class KniveObstacle : MonoBehaviour
             speed *= Random.Range(0.7f, 1.3f);
         }
 
-        transform.DORotate(new Vector3(360f, 0f, 0f), speed, RotateMode.LocalAxisAdd).SetEase(Ease.Linear).SetLoops(-1, LoopType.Restart);
+        transform.DORotate(new Vector3(0f, 0f, 360f), speed, RotateMode.LocalAxisAdd).SetEase(Ease.Linear).SetLoops(-1, LoopType.Restart);
+    }
+
+    private void GiradorVerticalMovement()
+    {
+        float speed = giradoresAnimSpeed;
+
+        //Optional Random Speed
+        if (makeGiradoresGoAtDifferentSpeeds)
+        {
+            speed *= Random.Range(0.7f, 1.3f);
+        }
+
+        transform.DORotate(new Vector3(0f, 0f, 360f), speed, RotateMode.LocalAxisAdd).SetEase(Ease.Linear).SetLoops(-1, LoopType.Restart);
     }
 }
