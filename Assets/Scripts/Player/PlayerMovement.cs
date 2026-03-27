@@ -37,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
     private bool grounded;
 
     public float RayMedition;
+    [SerializeField] private Animator animator;
 
     private void Start()
     {
@@ -51,7 +52,14 @@ public class PlayerMovement : MonoBehaviour
         Debug.DrawRay(rayOrigin, Vector3.down * 0.3f, grounded ? Color.green : Color.red);
         MyInput();
         HandleDrag();
+        
+        // Velocidad horizontal (sin contar Y)
+        Vector3 flatVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
+        float speed = flatVelocity.magnitude;
 
+        // Mandar valores al Animator
+        animator.SetFloat("Speed", speed);
+        animator.SetBool("IsGrounded", grounded);
 
         if (!canDash)
         {
