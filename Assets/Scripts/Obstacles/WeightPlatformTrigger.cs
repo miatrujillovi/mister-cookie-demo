@@ -10,11 +10,13 @@ public class WeightPlatformTrigger : MonoBehaviour
     [SerializeField] private string originalText;
     [Space]
     [SerializeField] private int requiredWeight;
-    public UnityEvent myEvent1;
+    public UnityEvent eventsToStart1;
+    public UnityEvent eventsToStop1;
     [Space]
     [SerializeField] private bool doubleWeightRequired;
     [SerializeField] private int secondRequiredWeight;
-    public UnityEvent myEvent2;
+    public UnityEvent eventsToStart2;
+    public UnityEvent eventsToStop2;
 
     public static Action<int, int, bool, int> onPlatformReceived;
 
@@ -57,13 +59,14 @@ public class WeightPlatformTrigger : MonoBehaviour
             if (currentWeight >= secondRequiredWeight)
             {
                 Debug.Log("Second Required weight met");
-                uiIndicator.text = "DONE";
-                //myEvent2?.Invoke();
+                uiIndicator.text = "Done";
+                eventsToStart2?.Invoke();
             }
             else
             {
                 Debug.Log("Second Required weight was NOT met");
                 uiIndicator.text = originalText;
+                eventsToStop2?.Invoke();
             }
         } 
         else
@@ -71,13 +74,14 @@ public class WeightPlatformTrigger : MonoBehaviour
             if (currentWeight >= requiredWeight)
             {
                 Debug.Log("Required weight met");
-                uiIndicator.text = "DONE";
-                //myEvent1?.Invoke();
+                uiIndicator.text = "Done";
+                eventsToStart1?.Invoke();
             } 
             else
             {
                 Debug.Log("Required weight was NOT met");
                 uiIndicator.text = originalText;
+                eventsToStop1?.Invoke();   
             }
         }
     }

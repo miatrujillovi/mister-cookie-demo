@@ -130,18 +130,18 @@ PrefabInstance:
     - target: {fileID: 289724991951456509, guid: 26b4da4536a8560458628d1e4056abf9, type: 3}
       propertyPath: Target.TrackingTarget
       value: 
-      objectReference: {fileID: 392017885}
+      objectReference: {fileID: 392017888}
     - target: {fileID: 966802412900836223, guid: 26b4da4536a8560458628d1e4056abf9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -104.683975
+      value: -105.90397
       objectReference: {fileID: 0}
     - target: {fileID: 966802412900836223, guid: 26b4da4536a8560458628d1e4056abf9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.86
+      value: 2.81
       objectReference: {fileID: 0}
     - target: {fileID: 966802412900836223, guid: 26b4da4536a8560458628d1e4056abf9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15.505711
+      value: -14.73571
       objectReference: {fileID: 0}
     - target: {fileID: 966802412900836223, guid: 26b4da4536a8560458628d1e4056abf9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -222,7 +222,7 @@ PrefabInstance:
     - target: {fileID: 3227719089937239201, guid: 26b4da4536a8560458628d1e4056abf9, type: 3}
       propertyPath: playerBody
       value: 
-      objectReference: {fileID: 392017888}
+      objectReference: {fileID: 392017885}
     - target: {fileID: 3227719089937239201, guid: 26b4da4536a8560458628d1e4056abf9, type: 3}
       propertyPath: orientation
       value: 
@@ -369,15 +369,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8709861161536220906, guid: 26b4da4536a8560458628d1e4056abf9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -104.683975
+      value: -105.90397
       objectReference: {fileID: 0}
     - target: {fileID: 8709861161536220906, guid: 26b4da4536a8560458628d1e4056abf9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.86
+      value: 2.81
       objectReference: {fileID: 0}
     - target: {fileID: 8709861161536220906, guid: 26b4da4536a8560458628d1e4056abf9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15.505711
+      value: -14.73571
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1507,9 +1507,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d385ca2648256934299cb6149e8d6349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovingPlatform
-  destination1: {x: -93.21, y: 1, z: -9.09}
-  destination2: {x: -93.21, y: 12, z: -9.09}
+  initialPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
   speed: 1.5
+  waitTime: 1.5
+  buttonActivated: 0
 --- !u!1 &223270194
 GameObject:
   m_ObjectHideFlags: 0
@@ -2512,6 +2514,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 624510174602792216, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
+      propertyPath: freeLookCam
+      value: 
+      objectReference: {fileID: 2727750}
+    - target: {fileID: 624510174602792216, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
+      propertyPath: shoulderCam
+      value: 
+      objectReference: {fileID: 2727749}
     - target: {fileID: 2818851912449568660, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -102.55
@@ -2568,6 +2578,38 @@ PrefabInstance:
       propertyPath: shoulderCam
       value: 
       objectReference: {fileID: 2727749}
+    - target: {fileID: 5626004311996399497, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -103.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 5626004311996399497, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 5626004311996399497, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 6991466348033086013, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
+      propertyPath: forceUI
+      value: 
+      objectReference: {fileID: 794116110}
+    - target: {fileID: 6991466348033086013, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
+      propertyPath: forceCanvas
+      value: 
+      objectReference: {fileID: 794116109}
+    - target: {fileID: 6991466348033086013, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
+      propertyPath: shoulderCam
+      value: 
+      objectReference: {fileID: 2727749}
+    - target: {fileID: 6991466348033086013, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
+      propertyPath: projectileCurveVisualizer
+      value: 
+      objectReference: {fileID: 119851514}
+    - target: {fileID: 7377915910097015836, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
+      propertyPath: dashUI
+      value: 
+      objectReference: {fileID: 1099097657}
     - target: {fileID: 8775956565428407119, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
       propertyPath: forceUI
       value: 
@@ -2591,24 +2633,35 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
 --- !u!4 &392017885 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4905682105171059478, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4844711746581332534, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
   m_PrefabInstance: {fileID: 392017884}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &392017886 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 2818851912449568660, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5626004311996399497, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
   m_PrefabInstance: {fileID: 392017884}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &392017887 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 6481652112921421131, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 796728226738256900, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
   m_PrefabInstance: {fileID: 392017884}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &392017888 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 6564990774516816295, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7236065230575732968, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
   m_PrefabInstance: {fileID: 392017884}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &392017889 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9053145258404345273, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
+  m_PrefabInstance: {fileID: 392017884}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 720c37612f7b60e48a42b51637dde57e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CuttingLimbs
 --- !u!1 &412432765
 GameObject:
   m_ObjectHideFlags: 0
@@ -3573,9 +3626,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d385ca2648256934299cb6149e8d6349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovingPlatform
-  destination1: {x: -53.67, y: 17.29, z: -9.09}
-  destination2: {x: -53.67, y: 7, z: -9.09}
+  initialPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
   speed: 2
+  waitTime: 1.5
+  buttonActivated: 0
 --- !u!1 &643903650
 GameObject:
   m_ObjectHideFlags: 0
@@ -5014,7 +5069,7 @@ PrefabInstance:
     - target: {fileID: 2623145786764581586, guid: 7e1851eb0d8b20048a616a578a7b55c7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1889394877}
+      objectReference: {fileID: 392017889}
     - target: {fileID: 2623145786764581586, guid: 7e1851eb0d8b20048a616a578a7b55c7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: CutLeftLeg
@@ -5022,7 +5077,7 @@ PrefabInstance:
     - target: {fileID: 2894584512965744633, guid: 7e1851eb0d8b20048a616a578a7b55c7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1889394877}
+      objectReference: {fileID: 392017889}
     - target: {fileID: 2894584512965744633, guid: 7e1851eb0d8b20048a616a578a7b55c7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: CutLeftHand
@@ -5034,7 +5089,7 @@ PrefabInstance:
     - target: {fileID: 5787470157052381213, guid: 7e1851eb0d8b20048a616a578a7b55c7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1889394877}
+      objectReference: {fileID: 392017889}
     - target: {fileID: 5787470157052381213, guid: 7e1851eb0d8b20048a616a578a7b55c7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: CutRightLeg
@@ -5042,7 +5097,7 @@ PrefabInstance:
     - target: {fileID: 7726400320775807746, guid: 7e1851eb0d8b20048a616a578a7b55c7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1889394877}
+      objectReference: {fileID: 392017889}
     - target: {fileID: 7726400320775807746, guid: 7e1851eb0d8b20048a616a578a7b55c7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: CutRightHand
@@ -6861,9 +6916,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d385ca2648256934299cb6149e8d6349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovingPlatform
-  destination1: {x: -65.58, y: 6, z: -9.09}
-  destination2: {x: -65.58, y: 13, z: -9.09}
+  initialPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
   speed: 1.5
+  waitTime: 1.5
+  buttonActivated: 0
 --- !u!1 &1315691785
 GameObject:
   m_ObjectHideFlags: 0
@@ -10281,17 +10338,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &1889394877 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8286214839579662987, guid: 082a15a6e73040047891a7e1e0209fe0, type: 3}
-  m_PrefabInstance: {fileID: 392017884}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 720c37612f7b60e48a42b51637dde57e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CuttingLimbs
 --- !u!1 &1894489695
 GameObject:
   m_ObjectHideFlags: 0
