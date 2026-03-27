@@ -24,7 +24,7 @@ public class PauseManager : MonoBehaviour
             ResumeGame();
     }
 
-    private void PauseGame()
+    public void PauseGame()
     {
         Time.timeScale = 0;
         pauseUI.SetActive(true);

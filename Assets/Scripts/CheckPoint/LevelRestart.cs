@@ -22,16 +22,5 @@ public class LevelRestart : MonoBehaviour
     public void RestartingLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
-        /*player.transform.position = startingPosition.position;
-
-        gameOverScreen.SetActive(false);
-
-        Time.timeScale = 1;
-
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;*/
-
-        //Call function to get all limbs back
     }
 }
