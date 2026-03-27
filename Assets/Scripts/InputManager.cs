@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using System.Collections;
 using System;
 public class InputManager : MonoBehaviour
 {
@@ -35,6 +34,10 @@ public class InputManager : MonoBehaviour
     private bool selection;
     public bool Selection => selection; //Public Getter
 
+    //PAUSE
+    private InputAction pause;
+    public bool Pause => pause.WasPressedThisFrame(); //Public Getter
+
 
     private void Awake()
     {
@@ -62,6 +65,9 @@ public class InputManager : MonoBehaviour
         dash = gameplayActionMap.Dash;
 
         scroll = gameplayActionMap.Scroll;
+
+        //PAUSE GAME
+        pause = gameplayActionMap.Pause;
     }
 
     private void OnEnable()
@@ -85,6 +91,9 @@ public class InputManager : MonoBehaviour
         scroll.Enable();
         scroll.performed += ctx => scrollInput = ctx.ReadValue<Vector2>().y;
         scroll.canceled += ctx => scrollInput = 0f;
+
+        //PAUSE GAME
+        pause.Enable();
     }
 
     private void OnDisable()
@@ -103,9 +112,12 @@ public class InputManager : MonoBehaviour
         jump.performed -= HandleJump;
         dash.Disable();
         scroll.Disable();
+
+        //PAUSE
+        pause.Disable();
     }
 
-        //SELECTION MENU - HOLD
+    //SELECTION MENU - HOLD
     private void StartSelection()
     {
         selection = true;
