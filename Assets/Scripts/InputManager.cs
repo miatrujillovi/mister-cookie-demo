@@ -38,6 +38,10 @@ public class InputManager : MonoBehaviour
     private InputAction pause;
     public bool Pause => pause.WasPressedThisFrame(); //Public Getter
 
+    // INTERACT
+    private InputAction interact;
+    public event Action OnInteract;
+
 
     private void Awake()
     {
@@ -65,6 +69,7 @@ public class InputManager : MonoBehaviour
         dash = gameplayActionMap.Dash;
 
         scroll = gameplayActionMap.Scroll;
+        interact = gameplayActionMap.Interact;
 
         //PAUSE GAME
         pause = gameplayActionMap.Pause;
@@ -92,6 +97,9 @@ public class InputManager : MonoBehaviour
         scroll.performed += ctx => scrollInput = ctx.ReadValue<Vector2>().y;
         scroll.canceled += ctx => scrollInput = 0f;
 
+        interact.Enable();
+        interact.performed += HandleInteract;
+
         //PAUSE GAME
         pause.Enable();
     }
@@ -115,6 +123,9 @@ public class InputManager : MonoBehaviour
 
         //PAUSE
         pause.Disable();
+
+        interact.Disable();
+        interact.performed -= HandleInteract;
     }
 
     //SELECTION MENU - HOLD
@@ -143,5 +154,11 @@ public class InputManager : MonoBehaviour
     {
         Debug.Log("HandleJump disparado");
         OnJump?.Invoke();
+    }
+
+    private void HandleInteract(InputAction.CallbackContext ctx)
+    {
+        Debug.Log("HandleInteract disparado");
+        OnInteract?.Invoke();
     }
 }
