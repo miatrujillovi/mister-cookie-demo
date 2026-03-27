@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class CutTrigger : MonoBehaviour
@@ -18,14 +19,21 @@ public class CutTrigger : MonoBehaviour
         hasTrigerred = true;
 
         SelectLimbToCut();
+        StartCoroutine(WaitToTriggerAgain());
     }
 
-    private void OnTriggerExit(Collider other)
+    private IEnumerator WaitToTriggerAgain()
+    {
+        yield return new WaitForSeconds(1.5f);
+        hasTrigerred = false;
+    }
+
+    /*private void OnTriggerExit(Collider other)
     {
         if (!other.CompareTag("Player")) return;
 
         hasTrigerred = false;
-    }
+    }*/
 
     private void SelectLimbToCut()
     {
