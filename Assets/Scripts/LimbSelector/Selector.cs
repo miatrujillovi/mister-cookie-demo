@@ -81,7 +81,7 @@ public class Selector : MonoBehaviour
                 rt.DOAnchorPos(targetPositions[i], duration).SetEase(Ease.OutBack).SetDelay(i * 0.05f);
 
                 // Scale pop
-                rt.DOScale(2.2f, duration).SetEase(Ease.OutBack).SetDelay(i * 0.05f);
+                rt.DOScale(0.76098f, duration).SetEase(Ease.OutBack).SetDelay(i * 0.05f);
             }
         });
     }
