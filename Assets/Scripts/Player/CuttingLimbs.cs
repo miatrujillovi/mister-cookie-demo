@@ -13,6 +13,7 @@ public class CuttingLimbs : MonoBehaviour
 
     [SerializeField] private List<GameObject> limbs;
     [SerializeField] private LimbLauncher limbLauncher;
+    [SerializeField] private Transform player;
 
     [HideInInspector] public List<string> currentLimbs;
 
@@ -141,6 +142,8 @@ public class CuttingLimbs : MonoBehaviour
         }
         currentLimbs.Remove("Head");
         currentLimbs.Remove("Torso");
+
+        player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 3f, player.transform.position.z);
 
         foreach (Button btn in limbButtons)
         {

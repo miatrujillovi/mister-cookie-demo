@@ -100,4 +100,12 @@ public class Selector : MonoBehaviour
         }
     }
 
+    public void EnableButtons()
+    {
+        foreach (var button in buttons)
+        {
+            button.enabled = true;
+        }
+    }
+
 }
