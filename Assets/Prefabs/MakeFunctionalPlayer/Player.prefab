@@ -319,7 +319,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!114 &7377915910097015836
 MonoBehaviour:
@@ -347,6 +347,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   orientation: {fileID: 796728226738256900}
+  normalRayMedition: -0.2
+  noLegsRayMedition: -1.25
   RayMedition: -0.2
 --- !u!114 &9053145258404345273
 MonoBehaviour:
@@ -368,6 +370,7 @@ MonoBehaviour:
   - {fileID: 6567483386088598993}
   - {fileID: 6414376528121212193}
   limbLauncher: {fileID: 6991466348033086013}
+  player: {fileID: 5626004311996399497}
   currentLimbs: []
   limbButtons:
   - {fileID: 0}

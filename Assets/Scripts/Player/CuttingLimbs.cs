@@ -108,6 +108,7 @@ public class CuttingLimbs : MonoBehaviour
         {
             limbLauncher.SetSelectedLimb(_child);
         }
+        AudioManager.Instance.PlayLimbSeparation();
     }
 
     public void RegenerateLimbs()

@@ -119,7 +119,7 @@ public class LimbLauncher : MonoBehaviour
         forceCanvas.SetActive(false);
         shoulderCamController.SetShoulderCam(false);
         playerMovement.enabled = true;
-
+        AudioManager.Instance.PlayThrow();
         InputManager.Instance.EnableSelection();
     }
 

@@ -12739,6 +12739,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 392017886}
     - target: {fileID: 6384560742750886021, guid: 60e6911e4713a6f449a5c9a6adfcb803, type: 3}
+      propertyPath: selector
+      value: 
+      objectReference: {fileID: 1824821575}
+    - target: {fileID: 6384560742750886021, guid: 60e6911e4713a6f449a5c9a6adfcb803, type: 3}
       propertyPath: fadePanel
       value: 
       objectReference: {fileID: 2125850806}
