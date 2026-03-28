@@ -3054,7 +3054,7 @@ Transform:
   - {fileID: 567496767}
   - {fileID: 1127859071}
   - {fileID: 1954878127}
-  - {fileID: 920193090}
+  - {fileID: 9082412888027476044}
   - {fileID: 1844357455}
   - {fileID: 609545166}
   m_Father: {fileID: 0}
@@ -5624,16 +5624,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 890750620}
   m_CullTransparentMesh: 1
---- !u!1 &920193086 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2627478448197083167, guid: 30b8c19c48194ce489cfe5b716169c54, type: 3}
-  m_PrefabInstance: {fileID: 9082412888027476043}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &920193090 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6942182855892581935, guid: 30b8c19c48194ce489cfe5b716169c54, type: 3}
-  m_PrefabInstance: {fileID: 9082412888027476043}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &925760250
 GameObject:
   m_ObjectHideFlags: 0
@@ -6147,7 +6137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ccba67551654ec4ca28e859648b2f0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseManager
-  pauseUI: {fileID: 920193086}
+  pauseUI: {fileID: 0}
 --- !u!1 &1041883931
 GameObject:
   m_ObjectHideFlags: 0
@@ -6861,39 +6851,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5400763045363322931, guid: 7e1851eb0d8b20048a616a578a7b55c7, type: 3}
   m_PrefabInstance: {fileID: 1121272679}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1121272681 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2623145786764581586, guid: 7e1851eb0d8b20048a616a578a7b55c7, type: 3}
-  m_PrefabInstance: {fileID: 1121272679}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
---- !u!114 &1121272682 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2894584512965744633, guid: 7e1851eb0d8b20048a616a578a7b55c7, type: 3}
-  m_PrefabInstance: {fileID: 1121272679}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
---- !u!114 &1121272683 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5787470157052381213, guid: 7e1851eb0d8b20048a616a578a7b55c7, type: 3}
-  m_PrefabInstance: {fileID: 1121272679}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!114 &1121272684 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7726400320775807746, guid: 7e1851eb0d8b20048a616a578a7b55c7, type: 3}
@@ -12312,9 +12269,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32c497441a5c49744a89e286df15fc81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelRestart
-  startingPosition: {fileID: 300469577}
-  gameOverScreen: {fileID: 0}
-  player: {fileID: 0}
 --- !u!1 &2020792885
 GameObject:
   m_ObjectHideFlags: 0
@@ -13340,9 +13294,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Selector
   buttons:
   - {fileID: 1121272684}
-  - {fileID: 1121272683}
-  - {fileID: 1121272682}
-  - {fileID: 1121272681}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   radius: 350
   centerOffset: {x: 0, y: 0}
 --- !u!1 &2099435964
@@ -15071,6 +15025,7 @@ MonoBehaviour:
   interactRange: 4
   player: {fileID: 850166365}
   cuttingLimbs: {fileID: 850166366}
+  selector: {fileID: 0}
   interactionTXT: {fileID: 354422586}
   fadePanel: {fileID: 1203579667}
   fadeDuration: 0.5
@@ -15115,6 +15070,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1041826576}
+    - target: {fileID: 5930045196251845805, guid: 30b8c19c48194ce489cfe5b716169c54, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6942182855892581935, guid: 30b8c19c48194ce489cfe5b716169c54, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -15200,6 +15159,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30b8c19c48194ce489cfe5b716169c54, type: 3}
+--- !u!224 &9082412888027476044 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5147382398875529231, guid: 30b8c19c48194ce489cfe5b716169c54, type: 3}
+  m_PrefabInstance: {fileID: 9082412888027476043}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
