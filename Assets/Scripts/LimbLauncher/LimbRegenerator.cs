@@ -8,6 +8,7 @@ public class LimbRegenerator : MonoBehaviour
     [SerializeField] private float interactRange = 3f;
     [SerializeField] private Transform player;
     [SerializeField] private CuttingLimbs cuttingLimbs;
+    [SerializeField] private Selector selector;
     [SerializeField] private TextMeshProUGUI interactionTXT;
     [SerializeField] private CanvasGroup fadePanel;
     [SerializeField] private float fadeDuration = 0.5f;
@@ -66,6 +67,7 @@ public class LimbRegenerator : MonoBehaviour
 
         // Do the regeneration while screen is black
         cuttingLimbs.RegenerateLimbs();
+        selector.EnableButtons();
 
         yield return new WaitForSeconds(0.3f); // small pause
 
