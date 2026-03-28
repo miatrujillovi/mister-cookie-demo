@@ -28,6 +28,10 @@ public class PlayerMovement : MonoBehaviour
     [Space]
     [Header("Player Orientation")]
     [SerializeField] private Transform orientation;
+    [Header("Limb State")]
+    [SerializeField] private float normalRayMedition = -0.2f;   // con piernas
+    [SerializeField] private float noLegsRayMedition = -1.25f;   // sin piernas
+    private CuttingLimbs cuttingLimbs;
 
     private float horizontalInput;
     private float verticalInput;
@@ -41,11 +45,16 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        cuttingLimbs = GetComponent<CuttingLimbs>();
         InputManager.Instance.OnJump += TryJump;
     }
 
     private void Update()
     {
+        bool hasLegs = cuttingLimbs.currentLimbs.Contains("RightLeg") ||
+                   cuttingLimbs.currentLimbs.Contains("LeftLeg");
+        RayMedition = hasLegs ? normalRayMedition : noLegsRayMedition;
+
         Vector3 rayOrigin = transform.position + Vector3.down * RayMedition;
         grounded = Physics.Raycast(rayOrigin, Vector3.down, 0.3f, Ground);
         Debug.DrawRay(rayOrigin, Vector3.down * 0.3f, grounded ? Color.green : Color.red);
@@ -144,6 +153,7 @@ public class PlayerMovement : MonoBehaviour
         // Resetea velocidad Y antes de saltar para saltos consistentes
         rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        AudioManager.Instance.PlayJumpLanding();
     }
 
     private void ResetJump()
@@ -154,7 +164,7 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator DashCoroutine()
     {
         isDashing = true;
-
+        AudioManager.Instance.PlayDash(true);
         //Deactivates groundDrag
         float originalDrag = rb.linearDamping;
         rb.linearDamping = 0f;

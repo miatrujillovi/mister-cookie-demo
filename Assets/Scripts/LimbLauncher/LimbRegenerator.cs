@@ -41,6 +41,7 @@ public class LimbRegenerator : MonoBehaviour
 
     private void TryRegenerate()
     {
+        AudioManager.Instance.PlayHornoRegenerate();
         if (player == null) { Debug.LogError("player no asignado"); return; }
         if (cuttingLimbs == null) { Debug.LogError("cuttingLimbs no asignado"); return; }
 
